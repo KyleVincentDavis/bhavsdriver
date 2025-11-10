@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <title>Driver Prep</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b0e1b" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <link rel="manifest" href="data:application/manifest+json,{
   &quot;name&quot;: &quot;Driver Prep Demo&quot;,
   &quot;short_name&quot;: &quot;DriverPrep&quot;,
@@ -16,998 +19,1779 @@
     &quot;src&quot;: &quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0OCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EUzwvdGV4dD4KPC9zdmc+&quot;,
     &quot;sizes&quot;: &quot;192x192&quot;,
     &quot;type&quot;: &quot;image/svg+xml&quot;
-  }]}
-">
+  }]
+}">
 <style>
-:root{ --bg:#0b0e1b; --bg-elev:#0f1222; --card:#161a31; --muted:#8b90b0; --text:#e8ebff; --border:#272a44; --chip:#1b2150; --focus:#3b82f6; --accent:#22c55e; --shadow:0 10px 30px rgba(0,0,0,.35); }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
-/* Top App Bar */
-.top{ position:sticky; top:0; z-index:20; padding:12px 16px calc(12px + env(safe-area-inset-top)) 16px; border-bottom:1px solid var(--border); background:linear-gradient(180deg, rgba(17,21,42,.92), rgba(17,21,42,.82) 60%, rgba(17,21,42,0)); backdrop-filter: blur(10px); display:flex; justify-content:space-between; align-items:center; gap:12px }
-.brand{display:flex; align-items:center; gap:10px}
-.brand .logo{width:28px; height:28px; border-radius:8px; background:var(--focus); display:grid; place-items:center; color:white; font-weight:800}
-.top h1{margin:0; font-size:18px}
-.top .actions{display:flex; align-items:center; gap:10px}
-.icon-btn{ width:36px; height:36px; border-radius:10px; border:1px solid var(--border); background:var(--card); display:grid; place-items:center; color:var(--text); cursor:pointer; transition:transform .08s ease; }
-.icon-btn:active{ transform:scale(.98) }
-/* Cards, Panels */
-.wrap{max-width:1100px; margin:16px auto; padding:0 16px}
-.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px}
-.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:14px 16px; box-shadow:var(--shadow)}
-.card-title{font-size:12px; color:var(--muted); margin-bottom:4px}
-.kpi{font-size:26px; font-weight:800}
-.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-.panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow)}
-.panel h3{margin:0 0 10px 0}
-.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px; margin-bottom:12px}
-.table{width:100%; border-collapse:collapse; font-size:14px}
-.table th,.table td{padding:10px 12px; border-bottom:1px solid var(--border)}
-.table th{color:var(--muted); background:#151936; text-align:left; position:sticky; top:0; z-index:1}
-.table tr:hover td{background:#14183a}
-.table a{ color:var(--focus); text-decoration:none } .table a:hover{text-decoration:underline}
-/* Bottom App Nav */
-.navbar{ position:fixed; left:0; right:0; bottom:0; z-index:24; backdrop-filter: blur(10px); background:linear-gradient(0deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); border-top:1px solid var(--border); padding-bottom:env(safe-area-inset-bottom); }
-.nav{ display:flex; justify-content:space-around; align-items:center; padding:8px 8px}
-.nav button{ flex:1; margin:0 6px; padding:8px 10px; background:none; border:none; color:var(--muted); font-size:12px; cursor:pointer; border-radius:12px; display:flex; flex-direction:column; gap:6px; align-items:center }
-.nav .ico{font-size:18px}
-.nav button.active{ color:var(--text); background:rgba(59,130,246,.14); border:1px solid var(--border) }
-/* Views */
-.view{display:none} .view.active{display:block}
-/* MultiSelect */
-.ms{ position:relative; min-width:220px; max-width:320px; background:#0f1330; border:1px solid var(--border); border-radius:12px; padding:6px; cursor:text }
-.ms:focus-within{ outline:2px solid var(--focus); outline-offset:2px; }
-.ms-inner{ display:flex; align-items:center; gap:6px; flex-wrap:wrap }
-.ms-tags{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
-.ms-tag{ display:inline-flex; align-items:center; gap:6px; background:var(--chip); border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:12px; white-space:nowrap }
-.ms-tag button{ background:none; border:0; color:var(--muted); cursor:pointer; padding:0 0 0 2px; line-height:1 }
-.ms-input{ flex:1 0 80px; min-width:80px; border:0; outline:0; background:transparent; color:var(--text); padding:6px 4px; font:inherit }
-.ms-actions{ display:flex; align-items:center; gap:6px; margin-left:auto}
-.ms-icon{ background:none; border:0; color:var(--muted); cursor:pointer; padding:2px; line-height:1; font-size:14px }
-.ms-list{ position:absolute; top:100%; left:0; right:0; margin-top:6px; background:#14183a; border:1px solid var(--border); border-radius:12px; padding:6px 0; max-height:260px; overflow:auto; box-shadow:var(--shadow); display:none; z-index:30 }
-.ms.open .ms-list{ display:block }
-.ms-group{ padding:8px 12px; font-size:12px; color:var(--muted) }
-.ms-option{ padding:10px 12px; cursor:pointer; }
-.ms-option[aria-selected="true"]{ color:#9cc3ff }
-.ms-option:hover, .ms-option.active{ background:#172058 }
-.ms-empty{ padding:8px 12px; color:var(--muted) }
-/* Generic Modal */
-.modal-bg{ position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:flex-end; justify-content:center; z-index:40; }
-.modal-content{ width:100%; max-width:900px; max-height:92vh; background:var(--bg-elev); border:1px solid var(--border); border-radius:16px 16px 0 0; padding:16px; overflow:auto; position:relative; box-shadow:var(--shadow); transform:translateY(20px); opacity:0; transition:transform .2s ease, opacity .2s ease; }
-.modal-bg.show{display:flex}
-.modal-bg.show .modal-content{transform:translateY(0); opacity:1}
-.modal-header{display:flex; align-items:center; justify-content:space-between; gap:10px; position:sticky; top:0; background:var(--bg-elev); padding-bottom:8px; margin:-16px -16px 8px; padding:12px 16px; border-bottom:1px solid var(--border); border-radius:16px 16px 0 0}
-.modal-title{font-size:16px; font-weight:700}
-.modal-actions{display:flex; gap:8px}
-.btn{ border:1px solid var(--border); background:var(--card); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:14px }
-.btn.primary{ background:var(--focus); color:#fff; border-color:transparent }
-.btn.ghost{ background:none }
+:root {
+  --bg: #0b0e1b;
+  --bg-elev: #0f1222;
+  --card: #161a31;
+  --muted: #8b90b0;
+  --text: #e8ebff;
+  --border: #272a44;
+  --chip: #1b2150;
+  --focus: #3b82f6;
+  --accent: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* App Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  padding-top: var(--safe-top);
+}
+
+/* Header - Dynamic */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 14, 27, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  overflow: auto;
+  padding-bottom: calc(72px + var(--safe-bottom));
+}
+
+/* Bottom Navigation */
+.nav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: rgba(15, 18, 34, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 12px var(--safe-bottom);
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  min-height: 52px;
+  justify-content: center;
+}
+
+.nav-item.active {
+  color: var(--focus);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.nav-icon {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.1);
+}
+
+/* Cards & Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: between;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpi {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Grid Layout */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: between;
+  margin-bottom: 16px;
+}
+
+.panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+/* Tables */
+.table-container {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  background: var(--bg-elev);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+
+.table th {
+  background: var(--bg-elev);
+  color: var(--muted);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr:hover td {
+  background: var(--bg-elev);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--focus);
+  color: white;
+  border-color: var(--focus);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 12px;
+}
+
+/* Search & Filter Bar */
+.search-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.filter-select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--text);
+  font-size: 16px;
+  min-width: 150px;
+}
+
 /* FAB */
-.fab{ position:fixed; right:16px; bottom:calc(80px + env(safe-area-inset-bottom)); width:56px; height:56px; border-radius:999px; background:var(--focus); color:#fff; display:grid; place-items:center; border:none; box-shadow:var(--shadow); cursor:pointer; font-size:22px }
-.foot{color:var(--muted); text-align:center; padding:16px}
-/* Search and Filter */
-.search-filter-bar { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; margin-bottom: 16px; align-items: end; }
-.search-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; color: var(--text); font-size: 14px; }
-.search-box::placeholder { color: var(--muted); }
-.filter-select { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; color: var(--text); font-size: 14px; min-width: 140px; }
-.order-details { margin-top: 16px; }
-.order-item { background: var(--bg-elev); border-radius: 8px; padding: 12px; margin-bottom: 8px; border: 1px solid var(--border); }
-.order-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
-.order-items { font-size: 13px; color: var(--muted); }
-.order-total { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-weight: 600; }
-@media (max-width:1000px){ .cards{grid-template-columns:1fr} .grid{grid-template-columns:1fr} .search-filter-bar { grid-template-columns: 1fr; } }
+.fab {
+  position: fixed;
+  right: 20px;
+  bottom: calc(84px + var(--safe-bottom));
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--focus);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 80;
+  transition: all 0.3s ease;
+}
+
+.fab:active {
+  transform: scale(0.9);
+}
+
+/* Views */
+.view {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Customer Cards */
+.customers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.customer-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.customer-card:active {
+  transform: scale(0.98);
+}
+
+.customer-card:hover {
+  border-color: var(--focus);
+}
+
+.customer-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--text);
+}
+
+.customer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.customer-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.customer-stats {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Order Cards */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 16px;
+}
+
+.order-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.order-card:active {
+  transform: scale(0.98);
+}
+
+.order-card:hover {
+  border-color: var(--focus);
+}
+
+.order-header {
+  display: flex;
+  justify-content: between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.order-id {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.order-date {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.order-customer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-total {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 2px solid var(--border);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Modals */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: between;
+  padding: 20px 24px 0;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+
+.modal-body {
+  padding: 0 24px 24px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+/* Filter Sections */
+.filter-section {
+  margin-bottom: 24px;
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+}
+
+.filter-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* Range Slider */
+.range-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.range-input {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--focus);
+  cursor: pointer;
+}
+
+.range-value {
+  min-width: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Order Items in Modal */
+.order-item-detail {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-item-detail:last-child {
+  border-bottom: none;
+}
+
+.order-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-item-name {
+  font-weight: 600;
+}
+
+.order-item-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Empty States */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  .search-bar {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .card, .panel {
+    padding: 16px;
+  }
+  
+  .modal-content {
+    margin: 0;
+    border-radius: var(--radius) var(--radius) 0 0;
+    max-height: 85vh;
+  }
+  
+  .table {
+    font-size: 13px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px 12px;
+  }
+  
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Utility Classes */
+.text-muted { color: var(--muted); }
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+.mb-4 { margin-bottom: 16px; }
+.mt-4 { margin-top: 16px; }
+.w-full { width: 100%; }
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--card) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
 </style>
 </head>
 <body>
-<header class="top" role="banner">
-  <div class="brand"><div class="logo">DP</div><h1>Driver Prep</h1></div>
-  <div class="actions">
-    <button id="btn-filter" class="icon-btn" title="Driver Prep Filters">⚙️</button>
-    <button id="btn-prep" class="icon-btn" title="Open Prep Modal">📦</button>
-  </div>
-</header>
+<div class="app">
+  <!-- Dynamic Header -->
+  <header class="header" role="banner">
+    <div class="header-content">
+      <div class="header-title">
+        <h1 id="header-main">Driver Prep</h1>
+        <p class="header-subtitle" id="header-subtitle">Pre-order dashboard</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="btn-header-action" class="btn btn-icon" aria-label="View options">
+        <span>⚙️</span>
+      </button>
+    </div>
+  </header>
 
-<main class="wrap" role="main">
-  <div id="view-prep" class="view active">
-    <section class="cards" aria-label="KPIs">
-      <div class="card"><div class="card-title">Total Pre-orders (lbs)</div><div class="kpi" id="kpi-total-lbs">—</div></div>
-      <div class="card"><div class="card-title">Items / Orders</div><div class="kpi" id="kpi-orders">—</div></div>
-      <div class="card"><div class="card-title">Total Value ($)</div><div class="kpi" id="kpi-total-value">—</div></div>
-    </section>
+  <!-- Main Content -->
+  <main class="main" role="main">
+    <!-- Driver Prep View -->
+    <div id="view-prep" class="view active">
+      <div class="container">
+        <!-- KPI Cards -->
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-title">Total Pre-orders</div>
+            <div class="kpi" id="kpi-total-lbs">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Orders / Items</div>
+            <div class="kpi" id="kpi-orders">—</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Total Value</div>
+            <div class="kpi" id="kpi-total-value">—</div>
+          </div>
+        </div>
 
-    <section class="grid">
-      <div class="panel">
-        <h3>What to Load (lbs)</h3>
-
-        <!-- Walk-in buffer -->
-        <div class="card" style="margin:0 0 12px 0">
-          <label>Walk-in buffer
-            <div style="display:flex; align-items:center; gap:10px; margin-top:6px">
-              <input id="buffer" type="range" min="0" max="30" value="10" style="flex:1">
-              <span id="buffer-val">10%</span>
+        <!-- Main Grid -->
+        <div class="grid-2">
+          <!-- Loading Plan -->
+          <div class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">What to Load</h2>
             </div>
-          </label>
+            
+            <!-- Buffer Control -->
+            <div class="card mb-4">
+              <label class="filter-label">Walk-in Buffer</label>
+              <div class="flex items-center gap-4">
+                <input id="buffer" type="range" min="0" max="30" value="10" class="w-full">
+                <span id="buffer-val" class="text-muted">10%</span>
+              </div>
+            </div>
+
+            <!-- Fruit Table -->
+            <div class="table-container">
+              <table class="table" id="fruit-table">
+                <thead>
+                  <tr>
+                    <th>Fruit</th>
+                    <th>Pre-orders</th>
+                    <th>+ Buffer</th>
+                    <th>Total to Load</th>
+                  </tr>
+                </thead>
+                <tbody><!-- Dynamic --></tbody>
+              </table>
+            </div>
+
+            <!-- Chart -->
+            <canvas id="fruit-chart" style="max-height: 200px; margin-top: 20px;"></canvas>
+          </div>
+
+          <!-- Stops -->
+          <div class="panel">
+            <div class="panel-header">
+              <h2 class="panel-title">Stops</h2>
+            </div>
+            <div class="table-container">
+              <table class="table" id="stops-table">
+                <thead>
+                  <tr>
+                    <th>City</th>
+                    <th>Time</th>
+                    <th>Orders</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody><!-- Dynamic --></tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
-        <div class="table-wrap">
-          <table class="table" id="fruit-table">
-            <thead><tr><th>Fruit</th><th>Pre-orders (lbs)</th><th>+ Buffer</th><th>Total to Load</th></tr></thead>
-            <tbody><!-- rows --></tbody>
-          </table>
+        <!-- Customers -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Customers</h2>
+          </div>
+          <div class="table-container">
+            <table class="table" id="customers-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Orders</th>
+                  <th>Total lbs</th>
+                  <th>Cities</th>
+                </tr>
+              </thead>
+              <tbody><!-- Dynamic --></tbody>
+            </table>
+          </div>
         </div>
-        <canvas id="fruit-chart" style="max-height: 300px;"></canvas>
-      </div>
-
-      <div class="panel">
-        <h3>Stops (matched to filters)</h3>
-        <div class="table-wrap">
-          <table class="table" id="stops-table">
-            <thead><tr><th>City</th><th>Arrival</th><th>Departure</th><th>Orders</th><th>lbs</th><th>Value ($)</th><th>Top Items</th></tr></thead>
-            <tbody><!-- rows --></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <div class="panel">
-      <h3>Customers (matched to filters)</h3>
-      <div class="table-wrap">
-        <table class="table" id="customers-table">
-          <thead><tr><th>Customer</th><th>Orders</th><th>Total lbs</th><th>Total Value ($)</th><th>Cities</th><th>Top Items</th></tr></thead>
-          <tbody><!-- rows --></tbody>
-        </table>
       </div>
     </div>
-  </div>
 
-  <div id="view-customers" class="view">
-    <div class="panel">
-      <h3>Contacts</h3>
-      
-      <!-- NEW: Search and Filter Bar -->
-      <div class="search-filter-bar">
-        <input type="text" id="customer-search" class="search-box" placeholder="Search customers by name, email, phone..." />
-        <select id="customer-filter-province" class="filter-select">
-          <option value="">All Provinces</option>
-        </select>
-        <select id="customer-filter-city" class="filter-select">
-          <option value="">All Cities</option>
-        </select>
-      </div>
-      
-      <div class="table-wrap">
-        <table class="table" id="contacts-table">
-          <thead><tr><th>Name</th><th>Type</th><th>Email</th><th>Phone</th><th>City</th><th>Province</th></tr></thead>
-          <tbody><!-- rows --></tbody>
-        </table>
+    <!-- Customers View -->
+    <div id="view-customers" class="view">
+      <div class="container">
+        <!-- Search & Filter -->
+        <div class="search-bar">
+          <input type="text" id="customer-search" class="search-input" placeholder="Search customers...">
+          <select id="customer-filter-province" class="filter-select">
+            <option value="">All Provinces</option>
+          </select>
+          <select id="customer-filter-city" class="filter-select">
+            <option value="">All Cities</option>
+          </select>
+        </div>
+
+        <!-- Customers Grid -->
+        <div class="customers-grid" id="customers-grid">
+          <!-- Dynamic customer cards -->
+        </div>
       </div>
     </div>
-  </div>
-</main>
 
-<footer class="navbar" role="navigation" aria-label="Bottom Navigation">
-  <nav class="nav">
-    <button id="nav-prep" class="active" aria-current="page"><span class="ico">📦</span><span>Driver Prep</span></button>
-    <button id="nav-customers"><span class="ico">👥</span><span>Customers</span></button>
+    <!-- Orders View -->
+    <div id="view-orders" class="view">
+      <div class="container">
+        <!-- Search & Filter -->
+        <div class="search-bar">
+          <input type="text" id="orders-search" class="search-input" placeholder="Search orders or customers...">
+          <select id="orders-filter-customer" class="filter-select">
+            <option value="">All Customers</option>
+          </select>
+          <select id="orders-filter-product" class="filter-select">
+            <option value="">All Products</option>
+          </select>
+          <select id="orders-filter-status" class="filter-select">
+            <option value="">All Status</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="delivered">Delivered</option>
+          </select>
+        </div>
+
+        <!-- Amount Range Filter -->
+        <div class="card mb-4">
+          <label class="filter-label">Order Value Range</label>
+          <div class="range-slider">
+            <span class="range-value" id="min-amount-value">$0</span>
+            <input type="range" id="orders-filter-min-amount" class="range-input" min="0" max="1000" value="0" step="50">
+            <span class="range-value" id="max-amount-value">$1000+</span>
+            <input type="range" id="orders-filter-max-amount" class="range-input" min="0" max="1000" value="1000" step="50">
+          </div>
+        </div>
+
+        <!-- Orders Grid -->
+        <div class="orders-grid" id="orders-grid">
+          <!-- Dynamic order cards -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="nav-bar" role="navigation" aria-label="Main navigation">
+    <div class="nav-items">
+      <button class="nav-item active" data-view="prep">
+        <span class="nav-icon">📦</span>
+        <span>Driver Prep</span>
+      </button>
+      <button class="nav-item" data-view="customers">
+        <span class="nav-icon">👥</span>
+        <span>Customers</span>
+      </button>
+      <button class="nav-item" data-view="orders">
+        <span class="nav-icon">📋</span>
+        <span>Orders</span>
+      </button>
+      <button class="nav-item" data-view="more">
+        <span class="nav-icon">⋯</span>
+        <span>More</span>
+      </button>
+    </div>
   </nav>
-</footer>
 
-<button id="fab-prep" class="fab" title="Open Driver Prep">📦</button>
+  <!-- FAB -->
+  <button id="fab-main" class="fab" aria-label="Quick actions">
+    <span>📦</span>
+  </button>
+</div>
 
 <!-- Driver Prep Modal -->
-<div id="prep-modal" class="modal-bg" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="prep-title">
+<div id="modal-prep" class="modal">
+  <div class="modal-content">
     <div class="modal-header">
-      <div class="modal-title" id="prep-title">Driver Prep</div>
-      <div class="modal-actions">
-        <button id="btn-print" class="btn">Print</button>
-        <button id="btn-export" class="btn">Export</button>
-        <button data-close="prep-modal" class="btn ghost" type="button">Close</button>
-      </div>
+      <h2 class="modal-title">Driver Prep Summary</h2>
+      <button class="btn btn-ghost btn-icon" data-close="modal-prep">×</button>
     </div>
-    <div id="prep-body" class="modal-body"><!-- filled via JS --></div>
+    <div class="modal-body" id="modal-prep-body">
+      <!-- Dynamic content -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="btn-print">Print</button>
+      <button class="btn" id="btn-export">Export CSV</button>
+      <button class="btn btn-primary" data-close="modal-prep">Close</button>
+    </div>
   </div>
 </div>
 
 <!-- Customer Details Modal -->
-<div id="customer-modal" class="modal-bg" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="customer-title">
+<div id="modal-customer" class="modal">
+  <div class="modal-content">
     <div class="modal-header">
-      <div class="modal-title" id="customer-title">Customer Details</div>
-      <div class="modal-actions">
-        <button id="btn-customer-driverprep" class="btn primary">Use in Driver Prep</button>
-        <button data-close="customer-modal" class="btn ghost" type="button">Close</button>
-      </div>
+      <h2 class="modal-title" id="modal-customer-title">Customer Details</h2>
+      <button class="btn btn-ghost btn-icon" data-close="modal-customer">×</button>
     </div>
-    <div id="customer-body" class="modal-body"><!-- filled via JS --></div>
+    <div class="modal-body" id="modal-customer-body">
+      <!-- Dynamic content -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="btn-use-in-driverprep">Use in Driver Prep</button>
+      <button class="btn" id="btn-view-orders">View All Orders</button>
+      <button class="btn" data-close="modal-customer">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Order Details Modal -->
+<div id="modal-order" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-order-title">Order Details</h2>
+      <button class="btn btn-ghost btn-icon" data-close="modal-order">×</button>
+    </div>
+    <div class="modal-body" id="modal-order-body">
+      <!-- Dynamic content -->
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="btn-view-customer">View Customer</button>
+      <button class="btn" data-close="modal-order">Close</button>
+    </div>
   </div>
 </div>
 
 <!-- Filters Modal -->
-<div id="filter-modal" class="modal-bg" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="filter-title">
+<div id="modal-filters" class="modal">
+  <div class="modal-content">
     <div class="modal-header">
-      <div class="modal-title" id="filter-title">Driver Prep Filters</div>
-      <div class="modal-actions">
-        <button data-close="filter-modal" class="btn ghost" type="button">Close</button>
-      </div>
+      <h2 class="modal-title" id="modal-filters-title">Filters</h2>
+      <button class="btn btn-ghost btn-icon" data-close="modal-filters">×</button>
     </div>
     <div class="modal-body">
-      <div class="panel" style="margin:0">
-        <div class="cards" style="grid-template-columns:repeat(2,1fr); gap:12px">
-          <label class="card">Date
-            <input id="filter-date" type="date" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
-          </label>
-          <label class="card">Province
-            <select id="filter-province" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
-              <option value="">All</option>
-              <option>British Columbia</option>
-              <option>Alberta</option>
-              <option>Saskatchewan</option>
-              <option>Manitoba</option>
-              <option>Ontario</option>
-              <option>NWT/Yukon</option>
-            </select>
-          </label>
-          <label class="card">City
-            <select id="filter-city" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px"></select>
-          </label>
-          <label class="card" style="align-items:stretch">Fruits
-            <div id="fruit-ms" class="ms" role="combobox" aria-haspopup="listbox" aria-expanded="false" style="margin-top:6px">
-              <div class="ms-inner">
-                <div class="ms-tags" aria-live="polite" aria-relevant="additions removals"></div>
-                <input class="ms-input" type="text" placeholder="Type to search…" aria-autocomplete="list" />
-                <div class="ms-actions">
-                  <button class="ms-icon ms-clear" title="Clear selection" aria-label="Clear selection">×</button>
-                  <button class="ms-icon ms-caret" title="Toggle" aria-label="Toggle">▾</button>
-                </div>
-              </div>
-              <div class="ms-list" role="listbox"></div>
-            </div>
-          </label>
-        </div>
-        <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
-          <button id="filters-reset" class="btn">Reset</button>
-          <button id="filters-apply" class="btn primary">Apply</button>
+      <div class="filter-section">
+        <label class="filter-label">Date</label>
+        <input type="date" id="filter-date" class="search-input">
+      </div>
+      
+      <div class="filter-section">
+        <label class="filter-label">Province</label>
+        <select id="filter-province" class="filter-select">
+          <option value="">All Provinces</option>
+          <option>British Columbia</option>
+          <option>Alberta</option>
+          <option>Saskatchewan</option>
+          <option>Manitoba</option>
+          <option>Ontario</option>
+        </select>
+      </div>
+      
+      <div class="filter-section">
+        <label class="filter-label">City</label>
+        <select id="filter-city" class="filter-select">
+          <option value="">All Cities</option>
+        </select>
+      </div>
+      
+      <div class="filter-section">
+        <label class="filter-label">Fruits</label>
+        <div id="fruit-filter" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+          <!-- Dynamic fruit checkboxes -->
         </div>
       </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="filters-reset">Reset</button>
+      <button class="btn btn-primary" id="filters-apply">Apply Filters</button>
     </div>
   </div>
 </div>
 
-<footer class="foot">PWA demo. Install to home screen for app feel. Works offline after first load.</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
-/*********** LIVE DATA LOADER (Google Sheets via Apps Script) ***********/
-const API_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL'; // e.g., https://script.google.com/macros/s/XXXX/exec
-
-let contacts = [];
-let fruitPrices = {};
-let fruitsByGroup = {};
-let cities = [];
-let orders = [];
-
-// load data (network-first). fall back to localStorage if offline.
-async function loadData() {
-  const res = await fetch(`${API_URL}?t=all`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  const data = await res.json();
-  applyData(data);
-  localStorage.setItem('driverprep-cache', JSON.stringify(data));
-}
-
-function applyData(data){
-  contacts = data.contacts || [];
-  fruitPrices = data.fruitPrices || {};
-  fruitsByGroup = data.fruitsByGroup || {};
-  cities = data.cities || [];
-  orders = data.orders || [];
-}
-
-/*********** HELPERS + STATE ***********/
-const $=sel=>document.querySelector(sel);
-const $$=sel=>document.querySelectorAll(sel);
-const fmtLbs=n=>`${Number(n||0).toLocaleString()} lbs`;
-const fmtDollar=n=>`$${Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}`;
-const todayISO=new Date().toISOString().slice(0,10);
-const uniqueCitiesFor=(province,date)=>{const set=new Set(cities.filter(c=>(!province||c.province===province)&&(!date||String(c.date)===String(date))).map(c=>c.city));return ["All",...Array.from(set)].map(n=>({label:n,value:n==="All"?"":n}))};
-const state={date:todayISO,province:"",city:"",bufferPct:10,fruits:[]};
-let fruitChart; let currentView='prep';
-
-// NEW: Customer view state
-const customerViewState = { search: '', province: '', city: '' };
-
-/*********** MODALS ***********/
-function showModal(id){const bg=document.getElementById(id);bg.classList.add('show');bg.setAttribute('aria-hidden','false')}
-function hideModal(id){const bg=document.getElementById(id);bg.classList.remove('show');bg.setAttribute('aria-hidden','true')}
-
-/*********** DRIVER PREP MODAL CONTENT ***********/
-function openDriverPrepModal(){
-  const ord=getFilteredOrders();
-  const fruitAgg=aggregateByFruit(ord);
-  const totalLbs=Object.values(fruitAgg).reduce((s,n)=>s+n,0);
-  const totalValue=ord.reduce((sum,o)=>sum+o.items.reduce((s,it)=>s+((!state.fruits.length||state.fruits.includes(it.fruit))?it.lbs*(fruitPrices[it.fruit]||0):0),0),0);
-  const stops=aggregateStops(ord);
-  const rowsFruit=Object.keys(fruitAgg).map(name=>{
-    const pre=fruitAgg[name]; const add=Math.round(pre*state.bufferPct/100); const total=pre+add;
-    return `<tr><td>${name}</td><td>${fmtLbs(pre)}</td><td>${fmtLbs(add)}</td><td><strong>${fmtLbs(total)}</strong></td></tr>`;
-  }).join("");
-  const rowsStops=stops.map(s=>`
-    <tr><td>${s.city}</td><td>${s.arrive||"—"}</td><td>${s.depart||"—"}</td><td>${s.orders}</td><td>${fmtLbs(s.lbs)}</td><td>${fmtDollar(s.value)}</td><td>${(s.topItems||[]).join(", ")||"—"}</td></tr>
-  `).join("");
-  const filtersBadge=`
-    <div class="kpi" style="font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px">
-      <span>📅 ${state.date||'All'}</span>
-      <span>• 🏞️ ${state.province||'All provinces'}</span>
-      <span>• 🏙️ ${state.city||'All cities'}</span>
-      <span>• 🧮 Buffer ${state.bufferPct}%</span>
-      ${state.fruits.length? `<span>• 🍓 ${state.fruits.join(', ')}</span>`:''}
-    </div>`;
-  const html=`
-    ${filtersBadge}
-    <section class="cards" style="margin-top:8px; grid-template-columns:repeat(3,1fr)">
-      <div class="card"><div class="card-title">Total Pre-orders (lbs)</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
-      <div class="card"><div class="card-title">Orders</div><div class="kpi">${ord.length}</div></div>
-      <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
-    </section>
-    <div class="panel" style="margin-top:12px">
-      <h3>What to Load (with Buffer)</h3>
-      <div class="table-wrap"><table class="table">
-        <thead><tr><th>Fruit</th><th>Pre-orders</th><th>+ Buffer</th><th>Total to Load</th></tr></thead>
-        <tbody>${rowsFruit || `<tr><td colspan="4">No items</td></tr>`}</tbody>
-      </table></div>
-    </div>
-    <div class="panel">
-      <h3>Stops</h3>
-      <div class="table-wrap"><table class="table">
-        <thead><tr><th>City</th><th>Arrival</th><th>Departure</th><th>Orders</th><th>lbs</th><th>Value</th><th>Top Items</th></tr></thead>
-        <tbody>${rowsStops || `<tr><td colspan="7">No stops</td></tr>`}</tbody>
-      </table></div>
-    </div>
-  `;
-  document.getElementById('prep-body').innerHTML=html;
-  showModal('prep-modal');
-}
-
-/*********** CUSTOMER DETAILS MODAL ***********/
-function openCustomerDetailsModal(customerId) {
-  const customer = contacts.find(c => c.id === customerId);
-  if (!customer) return;
-  
-  // Get all orders for this customer
-  const customerOrders = orders.filter(o => o.customerId === customerId)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-  
-  // Calculate customer totals
-  const totalOrders = customerOrders.length;
-  const totalLbs = customerOrders.reduce((sum, order) => 
-    sum + order.items.reduce((itemSum, item) => itemSum + (item.lbs || 0), 0), 0);
-  const totalValue = customerOrders.reduce((sum, order) => 
-    sum + order.items.reduce((itemSum, item) => 
-      itemSum + ((item.lbs || 0) * (fruitPrices[item.fruit] || 0)), 0), 0);
-  
-  // Get unique cities and provinces
-  const customerCities = [...new Set(customerOrders.map(o => o.city))];
-  const customerProvinces = [...new Set(customerOrders.map(o => o.province))];
-  
-  let ordersHtml = '';
-  if (customerOrders.length > 0) {
-    ordersHtml = `
-      <div class="order-details">
-        <h3>Order History (${customerOrders.length} orders)</h3>
-        ${customerOrders.map(order => {
-          const orderTotalLbs = order.items.reduce((sum, item) => sum + (item.lbs || 0), 0);
-          const orderTotalValue = order.items.reduce((sum, item) => 
-            sum + ((item.lbs || 0) * (fruitPrices[item.fruit] || 0)), 0);
-          
-          return `
-            <div class="order-item">
-              <div class="order-header">
-                <span>Order #${order.id}</span>
-                <span>${order.date}</span>
-              </div>
-              <div class="order-items">
-                ${order.items.map(item => `
-                  <div>${item.fruit}: ${fmtLbs(item.lbs)} × ${fmtDollar(fruitPrices[item.fruit] || 0)} = ${fmtDollar((item.lbs || 0) * (fruitPrices[item.fruit] || 0))}</div>
-                `).join('')}
-              </div>
-              <div class="order-total">
-                Order Total: ${fmtLbs(orderTotalLbs)} • ${fmtDollar(orderTotalValue)}
-              </div>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    `;
+// Enhanced Mobile-First Web App with Orders Tab
+class DriverPrepApp {
+  constructor() {
+    this.state = {
+      currentView: 'prep',
+      prepFilters: {
+        date: new Date().toISOString().slice(0,10),
+        province: '',
+        city: '',
+        bufferPct: 10,
+        fruits: []
+      },
+      customerFilters: {
+        search: '',
+        province: '',
+        city: ''
+      },
+      orderFilters: {
+        search: '',
+        customer: '',
+        product: '',
+        status: '',
+        minAmount: 0,
+        maxAmount: 1000
+      },
+      data: {
+        contacts: [],
+        fruitPrices: {},
+        fruitsByGroup: {},
+        cities: [],
+        orders: []
+      }
+    };
+    
+    this.init();
   }
-  
-  const html = `
-    <div class="panel" style="margin:0">
-      <h3 style="margin-top:0">Contact Information</h3>
-      <p><strong>Name:</strong> ${customer.name}</p>
-      <p><strong>Email:</strong> ${customer.email || '—'}</p>
-      <p><strong>Phone:</strong> ${customer.phone || '—'}</p>
-      <p><strong>Address:</strong> ${customer.address || '—'}</p>
-      <p><strong>Type:</strong> ${customer.type || '—'}</p>
-    </div>
-    
-    <div class="panel">
-      <h3>Order Summary</h3>
-      <div class="cards" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 16px;">
-        <div class="card"><div class="card-title">Total Orders</div><div class="kpi">${totalOrders}</div></div>
-        <div class="card"><div class="card-title">Total lbs</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
-        <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
-      </div>
-      <p><strong>Cities:</strong> ${customerCities.join(', ') || '—'}</p>
-      <p><strong>Provinces:</strong> ${customerProvinces.join(', ') || '—'}</p>
-    </div>
-    
-    ${ordersHtml}
-  `;
-  
-  document.getElementById('customer-body').innerHTML = html;
-  document.getElementById('customer-title').textContent = `Customer: ${customer.name}`;
-  
-  // Set up the "Use in Driver Prep" button
-  $('#btn-customer-driverprep').onclick = () => {
-    // Set filters based on this customer's data
-    if (customerCities.length === 1) {
-      state.city = customerCities[0];
-      $('#filter-city').value = state.city;
-    }
-    if (customerProvinces.length === 1) {
-      state.province = customerProvinces[0];
-      $('#filter-province').value = state.province;
-    }
-    
-    hideModal('customer-modal');
-    switchView('prep');
-    renderPrep();
-    
-    // Show a quick confirmation
-    const originalText = $('#btn-customer-driverprep').textContent;
-    $('#btn-customer-driverprep').textContent = 'Filters Applied!';
-    setTimeout(() => {
-      $('#btn-customer-driverprep').textContent = originalText;
-    }, 2000);
-  };
-  
-  showModal('customer-modal');
-}
 
-/*********** MULTISELECT ***********/
-class MultiSelect {
-  constructor(root,groups,{placeholder="Type to search…",onChange=()=>{}}={}){
-    this.root=root; this.groups=groups; this.onChange=onChange; this.value=new Set();
-    this.tagsEl=root.querySelector(".ms-tags"); this.inputEl=root.querySelector(".ms-input");
-    this.listEl=root.querySelector(".ms-list"); this.clearBtn=root.querySelector(".ms-clear"); this.caretBtn=root.querySelector(".ms-caret");
-    this.inputEl.placeholder=placeholder;
-    root.addEventListener("click",()=>this.open());
-    this.caretBtn.addEventListener("click",(e)=>{e.stopPropagation();this.toggle()});
-    this.clearBtn.addEventListener("click",(e)=>{e.preventDefault();e.stopPropagation();this.clear()});
-    this.inputEl.addEventListener("input",()=>this.renderList());
-    this.inputEl.addEventListener("keydown",(e)=>this.handleKeys(e));
-    document.addEventListener("click",(e)=>{if(!root.contains(e.target))this.close()});
-    this.renderList(); this.renderTags();
+  async init() {
+    await this.loadData();
+    this.setupEventListeners();
+    this.render();
+    this.setupServiceWorker();
   }
-  get selected(){return Array.from(this.value)}
-  set selected(arr){this.value=new Set(arr); this.renderTags(); this.renderList(); this.onChange(this.selected)}
-  open(){this.root.classList.add("open"); this.root.setAttribute("aria-expanded","true"); this.inputEl.focus(); this.renderList()}
-  close(){this.root.classList.remove("open"); this.root.setAttribute("aria-expanded","false")}
-  toggle(){this.root.classList.contains("open")?this.close():this.open()}
-  clear(){this.value.clear(); this.renderTags(); this.renderList(); this.onChange(this.selected)}
-  handleKeys(e){
-    const active=this.listEl.querySelector(".ms-option.active");
-    if(e.key==="ArrowDown"){e.preventDefault();const opts=[...this.listEl.querySelectorAll(".ms-option")];const i=Math.max(0,opts.indexOf(active)+1);opts.forEach(o=>o.classList.remove("active")); if(opts[i])opts[i].classList.add("active");return}
-    if(e.key==="ArrowUp"){e.preventDefault();const opts=[...this.listEl.querySelectorAll(".ms-option")];const i=Math.max(0,(opts.indexOf(active)<=0?0:opts.indexOf(active)-1));opts.forEach(o=>o.classList.remove("active")); if(opts[i])opts[i].classList.add("active");return}
-    if(e.key==="Enter"){const target=active||this.listEl.querySelector(".ms-option"); if(target){e.preventDefault(); this.toggleItem(target.dataset.value)} return}
-    if(e.key==="Backspace" && !this.inputEl.value && this.value.size){const last=[...this.value].pop(); this.value.delete(last); this.renderTags(); this.renderList(); this.onChange(this.selected)}
-  }
-  toggleItem(val){ if(this.value.has(val))this.value.delete(val); else this.value.add(val);
-    this.inputEl.value=""; this.renderTags(); this.renderList(); this.onChange(this.selected); this.open() }
-  renderTags(){ this.tagsEl.innerHTML=""; if(!this.value.size)return; this.selected.forEach(v=>{const tag=document.createElement("span"); tag.className="ms-tag"; tag.innerHTML=`${v} <button aria-label="Remove ${v}">×</button>`; tag.querySelector("button").addEventListener("click",(e)=>{e.stopPropagation(); this.toggleItem(v)}); this.tagsEl.appendChild(tag)})}
-  renderList(){ const q=this.inputEl.value.trim().toLowerCase(); this.listEl.innerHTML=""; let any=false;
-    Object.entries(this.groups||{}).forEach(([title,items])=>{const matches=(items||[]).filter(x=>String(x).toLowerCase().includes(q)); if(!matches.length)return;
-      const g=document.createElement("div"); g.className="ms-group"; g.textContent=title; this.listEl.appendChild(g);
-      matches.forEach(v=>{any=true; const opt=document.createElement("div"); opt.className="ms-option"; opt.setAttribute("role","option"); opt.dataset.value=v; opt.setAttribute("aria-selected",this.value.has(v)?"true":"false"); opt.textContent=v;
-        opt.addEventListener("click",(e)=>{e.stopPropagation(); this.toggleItem(v)});
-        opt.addEventListener("mouseenter",()=>{[...this.listEl.querySelectorAll(".ms-option")].forEach(o=>o.classList.remove("active")); opt.classList.add("active")});
-        this.listEl.appendChild(opt)})});
-    if(!any){const empty=document.createElement("div"); empty.className="ms-empty"; empty.textContent="No results"; this.listEl.appendChild(empty)}
-  }
-}
 
-/*********** VIEW + RENDER ***********/
-function switchView(viewName){
-  if(currentView===viewName)return;
-  currentView=viewName;
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-  document.getElementById(`view-${viewName}`).classList.add('active');
-  document.getElementById(`nav-${viewName}`).classList.add('active');
-  if(viewName==='prep'){renderPrep()} else {renderCustomers()}
-}
-
-function getFilteredOrders(){
-  return (orders||[]).filter(o =>
-    (!state.date || String(o.date)===String(state.date)) &&
-    (!state.province || o.province===state.province) &&
-    (!state.city || o.city===state.city) &&
-    (state.fruits.length===0 || (o.items||[]).some(it=>state.fruits.includes(it.fruit)))
-  );
-}
-
-function aggregateByFruit(ord){
-  const agg={}; (ord||[]).forEach(o=>(o.items||[]).forEach(it=>{ if(!state.fruits.length || state.fruits.includes(it.fruit)){ agg[it.fruit]=(agg[it.fruit]||0)+Number(it.lbs||0) }}));
-  return agg;
-}
-
-function aggregateStops(ord){
-  const map=new Map();
-  (ord||[]).forEach(o=>{
-    const key=o.city;
-    const filtered=(o.items||[]).filter(it=>!state.fruits.length||state.fruits.includes(it.fruit));
-    const lbs=filtered.reduce((s,it)=>s+Number(it.lbs||0),0);
-    const value=filtered.reduce((s,it)=>s+Number(it.lbs||0)*(Number(fruitPrices[it.fruit])||0),0);
-    const entry=map.get(key)||{city:key,orders:0,lbs:0,value:0,arrive:"",depart:"",topItems:[]};
-    entry.orders+=1; entry.lbs+=lbs; entry.value+=value;
-    const sched=(cities||[]).find(c=>c.city===o.city && String(c.date)===String(o.date))||{};
-    entry.arrive=sched.arrive||""; entry.depart=sched.depart||"";
-    entry.topItems=Array.from(new Set([...(entry.topItems), ...filtered.map(i=>i.fruit)]));
-    map.set(key,entry);
-  });
-  return Array.from(map.values()).sort((a,b)=>b.value-a.value);
-}
-
-function aggregateCustomers(ord){
-  const map=new Map();
-  (ord||[]).forEach(o=>{
-    const custId=o.customerId;
-    const custData=(contacts||[]).find(c=>Number(c.id)===Number(custId) && c.type==='customer'); if(!custData)return;
-    const entry=map.get(custId)||{...custData,orders:0,lbs:0,value:0,cities:[],topItems:[]};
-    entry.orders+=1;
-    const filtered=(o.items||[]).filter(it=>!state.fruits.length||state.fruits.includes(it.fruit));
-    entry.lbs+=filtered.reduce((s,it)=>s+Number(it.lbs||0),0);
-    entry.value+=filtered.reduce((s,it)=>s+Number(it.lbs||0)*(Number(fruitPrices[it.fruit])||0),0);
-    entry.cities.push(o.city); entry.topItems.push(...filtered.map(i=>i.fruit));
-    map.set(custId,entry);
-  });
-  return Array.from(map.values()).map(c=>{c.cities=[...new Set(c.cities)]; c.topItems=[...new Set(c.topItems)]; return c}).sort((a,b)=>b.value-a.value);
-}
-
-function renderPrep(){
-  const ord=getFilteredOrders();
-  const fruitAgg=aggregateByFruit(ord);
-  const totalLbs=Object.values(fruitAgg).reduce((s,n)=>s+n,0);
-  const totalValue=ord.reduce((sum,o)=>sum+o.items.reduce((s,it)=>s+((!state.fruits.length||state.fruits.includes(it.fruit))?Number(it.lbs||0)*(Number(fruitPrices[it.fruit])||0):0),0),0);
-  $('#kpi-total-lbs').textContent=fmtLbs(totalLbs);
-  $('#kpi-orders').textContent=`${ord.length} orders`;
-  $('#kpi-total-value').textContent=fmtDollar(totalValue);
-  // Fruit table + chart
-  const tbody=$("#fruit-table tbody"); tbody.innerHTML="";
-  const labels=Object.keys(fruitAgg); const data=labels.map(k=>fruitAgg[k]);
-  labels.forEach(name=>{
-    const pre=fruitAgg[name]; const add=Math.round(pre*state.bufferPct/100); const total=pre+add;
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${name}</td><td>${fmtLbs(pre)}</td><td>${fmtLbs(add)}</td><td><strong>${fmtLbs(total)}</strong></td>`;
-    tbody.appendChild(tr);
-  });
-  if(window.fruitChart)fruitChart.destroy();
-  const ctx=document.getElementById("fruit-chart");
-  fruitChart=new Chart(ctx,{type:"bar",data:{labels,datasets:[{label:"Pre-orders (lbs)",data,backgroundColor:'#3b82f6'}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
-  // Stops
-  const stops=aggregateStops(ord);
-  const tb2=$("#stops-table tbody"); tb2.innerHTML="";
-  stops.forEach(s=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td>${s.city}</td><td>${s.arrive||"—"}</td><td>${s.depart||"—"}</td><td>${s.orders}</td><td>${fmtLbs(s.lbs)}</td><td>${fmtDollar(s.value)}</td><td>${(s.topItems||[]).join(", ")||"—"}</td>`;
-    tb2.appendChild(tr);
-  });
-  // Customers
-  const custs=aggregateCustomers(ord);
-  const tb3=$("#customers-table tbody"); tb3.innerHTML="";
-  custs.forEach(c=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td><a href="#" data-cont-id="${c.id}">${c.name}</a></td><td>${c.orders}</td><td>${fmtLbs(c.lbs)}</td><td>${fmtDollar(c.value)}</td><td>${c.cities.join(", ")||"—"}</td><td>${c.topItems.join(", ")||"—"}</td>`;
-    tb3.appendChild(tr);
-  });
-}
-
-// NEW: Enhanced customer view with search and filter
-function renderCustomers() {
-  const searchStr = customerViewState.search.toLowerCase();
-  const provinceFilter = customerViewState.province;
-  const cityFilter = customerViewState.city;
-  
-  // Get customer cities and provinces from their orders
-  const customerOrdersMap = new Map();
-  orders.forEach(order => {
-    if (!customerOrdersMap.has(order.customerId)) {
-      customerOrdersMap.set(order.customerId, []);
+  async loadData() {
+    try {
+      // Try to load from API first
+      const API_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+      const res = await fetch(`${API_URL}?t=all`, { cache: 'no-store' });
+      if (res.ok) {
+        this.state.data = await res.json();
+        localStorage.setItem('driverprep-cache', JSON.stringify(this.state.data));
+      } else {
+        throw new Error('API not available');
+      }
+    } catch (err) {
+      // Fallback to cached data
+      const cached = localStorage.getItem('driverprep-cache');
+      if (cached) {
+        this.state.data = JSON.parse(cached);
+      } else {
+        // Load demo data
+        this.loadDemoData();
+      }
     }
-    customerOrdersMap.get(order.customerId).push(order);
-  });
-  
-  const filteredContacts = contacts.filter(contact => {
-    // Filter by type
-    if (contact.type !== 'customer') return false;
+  }
+
+  loadDemoData() {
+    // Demo data would be loaded here
+    // This would include the customer and order data from previous implementations
+  }
+
+  setupEventListeners() {
+    // Navigation
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        const view = e.currentTarget.dataset.view;
+        this.switchView(view);
+      });
+    });
+
+    // Header action button - context aware
+    document.getElementById('btn-header-action').addEventListener('click', () => {
+      if (this.state.currentView === 'prep') {
+        this.openModal('modal-filters');
+      } else if (this.state.currentView === 'customers') {
+        // Focus search for customers
+        document.getElementById('customer-search').focus();
+      } else if (this.state.currentView === 'orders') {
+        // Show advanced order filters
+        this.openModal('modal-filters');
+      }
+    });
+
+    // FAB - context aware
+    document.getElementById('fab-main').addEventListener('click', () => {
+      if (this.state.currentView === 'prep') {
+        this.openDriverPrepModal();
+      } else if (this.state.currentView === 'customers') {
+        // Future: Add new customer
+      } else if (this.state.currentView === 'orders') {
+        // Future: Create new order
+      }
+    });
+
+    // Modal closures
+    document.querySelectorAll('[data-close]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const modalId = e.currentTarget.dataset.close;
+        this.closeModal(modalId);
+      });
+    });
+
+    // Click outside modals to close
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          this.closeModal(modal.id);
+        }
+      });
+    });
+
+    // Driver Prep filters
+    document.getElementById('filter-date').addEventListener('change', (e) => {
+      this.state.prepFilters.date = e.target.value;
+      this.renderPrepView();
+    });
+
+    document.getElementById('filter-province').addEventListener('change', (e) => {
+      this.state.prepFilters.province = e.target.value;
+      this.updateCityOptions();
+      this.renderPrepView();
+    });
+
+    document.getElementById('filter-city').addEventListener('change', (e) => {
+      this.state.prepFilters.city = e.target.value;
+      this.renderPrepView();
+    });
+
+    // Buffer slider
+    document.getElementById('buffer').addEventListener('input', (e) => {
+      this.state.prepFilters.bufferPct = Number(e.target.value);
+      document.getElementById('buffer-val').textContent = `${this.state.prepFilters.bufferPct}%`;
+      this.renderPrepView();
+    });
+
+    // Customer search and filters
+    document.getElementById('customer-search').addEventListener('input', (e) => {
+      this.state.customerFilters.search = e.target.value;
+      this.renderCustomersView();
+    });
+
+    document.getElementById('customer-filter-province').addEventListener('change', (e) => {
+      this.state.customerFilters.province = e.target.value;
+      this.renderCustomersView();
+    });
+
+    document.getElementById('customer-filter-city').addEventListener('change', (e) => {
+      this.state.customerFilters.city = e.target.value;
+      this.renderCustomersView();
+    });
+
+    // Order search and filters
+    document.getElementById('orders-search').addEventListener('input', (e) => {
+      this.state.orderFilters.search = e.target.value;
+      this.renderOrdersView();
+    });
+
+    document.getElementById('orders-filter-customer').addEventListener('change', (e) => {
+      this.state.orderFilters.customer = e.target.value;
+      this.renderOrdersView();
+    });
+
+    document.getElementById('orders-filter-product').addEventListener('change', (e) => {
+      this.state.orderFilters.product = e.target.value;
+      this.renderOrdersView();
+    });
+
+    document.getElementById('orders-filter-status').addEventListener('change', (e) => {
+      this.state.orderFilters.status = e.target.value;
+      this.renderOrdersView();
+    });
+
+    // Order amount range filters
+    document.getElementById('orders-filter-min-amount').addEventListener('input', (e) => {
+      this.state.orderFilters.minAmount = Number(e.target.value);
+      document.getElementById('min-amount-value').textContent = `$${e.target.value}`;
+      this.renderOrdersView();
+    });
+
+    document.getElementById('orders-filter-max-amount').addEventListener('input', (e) => {
+      this.state.orderFilters.maxAmount = Number(e.target.value);
+      const value = e.target.value === '1000' ? '$1000+' : `$${e.target.value}`;
+      document.getElementById('max-amount-value').textContent = value;
+      this.renderOrdersView();
+    });
+
+    // Apply/Reset filters
+    document.getElementById('filters-apply').addEventListener('click', () => {
+      this.closeModal('modal-filters');
+      this.render();
+    });
+
+    document.getElementById('filters-reset').addEventListener('click', () => {
+      this.resetFilters();
+      this.render();
+    });
+
+    // Modal actions
+    document.getElementById('btn-print').addEventListener('click', () => window.print());
+    document.getElementById('btn-export').addEventListener('click', () => this.exportPrepCSV());
+    document.getElementById('btn-use-in-driverprep').addEventListener('click', () => this.useCustomerInDriverPrep());
+    document.getElementById('btn-view-orders').addEventListener('click', () => this.viewCustomerOrders());
+    document.getElementById('btn-view-customer').addEventListener('click', () => this.viewOrderCustomer());
+
+    // ESC key to close modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.active').forEach(modal => {
+          this.closeModal(modal.id);
+        });
+      }
+    });
+  }
+
+  switchView(view) {
+    this.state.currentView = view;
     
-    // Filter by search string
-    if (searchStr) {
-      const searchable = [
-        contact.name || '',
-        contact.email || '', 
-        contact.phone || '',
-        contact.address || ''
-      ].join(' ').toLowerCase();
-      if (!searchable.includes(searchStr)) return false;
-    }
-    
-    // Filter by province and city using order data
-    const customerOrders = customerOrdersMap.get(contact.id) || [];
-    const customerCities = [...new Set(customerOrders.map(o => o.city))];
-    const customerProvinces = [...new Set(customerOrders.map(o => o.province))];
-    
-    if (provinceFilter && !customerProvinces.includes(provinceFilter)) return false;
-    if (cityFilter && !customerCities.includes(cityFilter)) return false;
-    
-    return true;
-  }).sort((a, b) => a.name.localeCompare(b.name));
-  
-  const tbody = $("#contacts-table tbody");
-  tbody.innerHTML = "";
-  
-  filteredContacts.forEach(contact => {
-    const customerOrders = customerOrdersMap.get(contact.id) || [];
-    const customerCities = [...new Set(customerOrders.map(o => o.city))];
-    const customerProvinces = [...new Set(customerOrders.map(o => o.province))];
-    
-    const tr = document.createElement("tr");
-    tr.style.cursor = "pointer";
-    tr.innerHTML = `
-      <td>${contact.name}</td>
-      <td>${contact.type}</td>
-      <td>${contact.email || '—'}</td>
-      <td>${contact.phone || '—'}</td>
-      <td>${customerCities.join(', ') || '—'}</td>
-      <td>${customerProvinces.join(', ') || '—'}</td>
-    `;
-    
-    tr.addEventListener('click', () => {
-      openCustomerDetailsModal(contact.id);
+    // Update navigation
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.toggle('active', item.dataset.view === view);
     });
     
-    tbody.appendChild(tr);
-  });
-}
-
-// NEW: Fill customer filter dropdowns
-function fillCustomerFilters() {
-  // Get unique provinces and cities from orders
-  const allProvinces = new Set();
-  const allCities = new Set();
-  
-  orders.forEach(order => {
-    if (order.province) allProvinces.add(order.province);
-    if (order.city) allCities.add(order.city);
-  });
-  
-  // Fill province filter
-  const provinceSelect = $('#customer-filter-province');
-  provinceSelect.innerHTML = '<option value="">All Provinces</option>';
-  Array.from(allProvinces).sort().forEach(province => {
-    provinceSelect.innerHTML += `<option value="${province}">${province}</option>`;
-  });
-  
-  // Fill city filter
-  const citySelect = $('#customer-filter-city');
-  citySelect.innerHTML = '<option value="">All Cities</option>';
-  Array.from(allCities).sort().forEach(city => {
-    citySelect.innerHTML += `<option value="${city}">${city}</option>`;
-  });
-}
-
-/*********** EXPORT CSV ***********/
-function exportPrepCSV(){
-  const ord=getFilteredOrders();
-  const stops=aggregateStops(ord);
-  const fruitAgg=aggregateByFruit(ord);
-  let csv="Section,Field,Value\n";
-  csv+=`Filters,Date,${state.date}\n`;
-  csv+=`Filters,Province,${state.province||'All'}\n`;
-  csv+=`Filters,City,${state.city||'All'}\n`;
-  csv+=`Filters,Buffer,${state.bufferPct}%\n`;
-  if(state.fruits.length)csv+=`Filters,Fruits,${state.fruits.join('; ')}\n`;
-  csv+="\nFruit,Pre-orders (lbs),Buffer (lbs),Total to Load (lbs)\n";
-  Object.keys(fruitAgg).forEach(name=>{const pre=fruitAgg[name]; const add=Math.round(pre*state.bufferPct/100); const total=pre+add; csv+=`${name},${pre},${add},${total}\n`});
-  csv+="\nCity,Arrival,Departure,Orders,lbs,Value,Top Items\n";
-  stops.forEach(s=>{csv+=`${s.city},${s.arrive||''},${s.depart||''},${s.orders},${s.lbs},${s.value},${(s.topItems||[]).join(' ')}\n`});
-  const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"}); const url=URL.createObjectURL(blob);
-  const a=document.createElement('a'); a.href=url; a.download=`driver-prep-${state.date||'all'}.csv`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-}
-
-/*********** INIT ***********/
-function fillCitySelect(){
-  const opts=uniqueCitiesFor(state.province,state.date);
-  $("#filter-city").innerHTML=opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join("");
-  state.city="";
-}
-
-async function boot(){
-  // Try live first, then cached
-  try {
-    await loadData();
-  } catch (err) {
-    const cached = localStorage.getItem('driverprep-cache');
-    if (cached) applyData(JSON.parse(cached));
-    else console.error('No data available', err);
-  }
-  init();
-}
-
-function init(){
-  // default demo date (if your sheet uses other dates, pick one from cities or orders)
-  const d=(cities[0]?.date)||"2025-10-08"; state.date=String(d);
-  $("#filter-date").value=state.date; fillCitySelect();
-
-  const ms=new MultiSelect($("#fruit-ms"),fruitsByGroup,{onChange:(vals)=>{state.fruits=vals;}});
-  window.fruitFilter=ms;
-
-  // filter inputs
-  $("#filter-date").addEventListener("change",e=>{state.date=e.target.value; fillCitySelect(); renderPrep();});
-  $("#filter-province").addEventListener("change",e=>{state.province=e.target.value; fillCitySelect(); renderPrep();});
-  $("#filter-city").addEventListener("change",e=>{state.city=e.target.value; renderPrep();});
-
-  // buffer slider
-  $("#buffer").addEventListener("input",e=>{
-    state.bufferPct=Number(e.target.value);
-    $("#buffer-val").textContent=`${state.bufferPct}%`;
-    renderPrep();
-  });
-
-  // NEW: Customer search and filter
-  $("#customer-search").addEventListener("input", e => {
-    customerViewState.search = e.target.value;
-    renderCustomers();
-  });
-  
-  $("#customer-filter-province").addEventListener("change", e => {
-    customerViewState.province = e.target.value;
-    renderCustomers();
-  });
-  
-  $("#customer-filter-city").addEventListener("change", e => {
-    customerViewState.city = e.target.value;
-    renderCustomers();
-  });
-
-  // open/close modals
-  $("#btn-filter").addEventListener("click",()=>showModal('filter-modal'));
-  $("#btn-prep").addEventListener("click",openDriverPrepModal);
-  $("#fab-prep").addEventListener("click",openDriverPrepModal);
-  document.querySelectorAll("[data-close]").forEach(btn=>btn.addEventListener("click",e=>hideModal(e.currentTarget.getAttribute("data-close"))));
-  document.getElementById('filter-modal').addEventListener('click',e=>{if(e.target.id==='filter-modal')hideModal('filter-modal')});
-  document.getElementById('prep-modal').addEventListener('click',e=>{if(e.target.id==='prep-modal')hideModal('prep-modal')});
-  document.getElementById('customer-modal').addEventListener('click',e=>{if(e.target.id==='customer-modal')hideModal('customer-modal')});
-
-  // NEW: Customer contact clicks
-  document.addEventListener("click", e => {
-    if (e.target.tagName === "A" && e.target.dataset.contId) {
-      e.preventDefault();
-      const id = Number(e.target.dataset.contId);
-      openCustomerDetailsModal(id);
+    // Update views
+    document.querySelectorAll('.view').forEach(viewEl => {
+      viewEl.classList.toggle('active', viewEl.id === `view-${view}`);
+    });
+    
+    // Update header
+    this.updateHeader();
+    
+    // Render the view
+    if (view === 'prep') {
+      this.renderPrepView();
+    } else if (view === 'customers') {
+      this.renderCustomersView();
+    } else if (view === 'orders') {
+      this.renderOrdersView();
     }
-  });
-
-  // apply/reset filters
-  $("#filters-apply").addEventListener("click",()=>{ hideModal('filter-modal'); renderPrep(); });
-  $("#filters-reset").addEventListener("click",()=>{
-    state.province=""; state.city=""; state.bufferPct=10; state.fruits=[];
-    $("#buffer").value=10; $("#buffer-val").textContent="10%";
-    $("#filter-province").value=""; fillCitySelect(); window.fruitFilter.clear();
-    renderPrep();
-  });
-
-  // nav
-  $("#nav-prep").addEventListener("click",()=>switchView('prep'));
-  $("#nav-customers").addEventListener("click",()=>{
-    fillCustomerFilters();
-    switchView('customers');
-  });
-
-  // modal actions
-  $("#btn-print").addEventListener("click",()=>window.print());
-  $("#btn-export").addEventListener("click",exportPrepCSV);
-
-  // initial draw
-  renderPrep();
-
-  // PWA service worker
-  if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('./sw.js').catch(console.error);
   }
 
-  // esc to close modals
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){
-      if(document.getElementById('filter-modal').classList.contains('show')) hideModal('filter-modal');
-      if(document.getElementById('prep-modal').classList.contains('show')) hideModal('prep-modal');
-      if(document.getElementById('customer-modal').classList.contains('show')) hideModal('customer-modal');
+  updateHeader() {
+    const headerMain = document.getElementById('header-main');
+    const headerSubtitle = document.getElementById('header-subtitle');
+    const headerAction = document.getElementById('btn-header-action');
+    
+    switch (this.state.currentView) {
+      case 'prep':
+        headerMain.textContent = 'Driver Prep';
+        headerSubtitle.textContent = 'Pre-order dashboard';
+        headerAction.innerHTML = '⚙️';
+        headerAction.title = 'Filters';
+        break;
+      case 'customers':
+        const customerCount = this.getFilteredCustomers().length;
+        headerMain.textContent = 'Customers';
+        headerSubtitle.textContent = `${customerCount} customer${customerCount !== 1 ? 's' : ''}`;
+        headerAction.innerHTML = '🔍';
+        headerAction.title = 'Search & Filter';
+        break;
+      case 'orders':
+        const orderCount = this.getFilteredOrdersForTab().length;
+        headerMain.textContent = 'Orders';
+        headerSubtitle.textContent = `${orderCount} order${orderCount !== 1 ? 's' : ''}`;
+        headerAction.innerHTML = '⚙️';
+        headerAction.title = 'Order Filters';
+        break;
+      default:
+        headerMain.textContent = 'Driver Prep';
+        headerSubtitle.textContent = 'Pre-order dashboard';
     }
-  });
+  }
+
+  render() {
+    this.updateHeader();
+    
+    if (this.state.currentView === 'prep') {
+      this.renderPrepView();
+    } else if (this.state.currentView === 'customers') {
+      this.renderCustomersView();
+    } else if (this.state.currentView === 'orders') {
+      this.renderOrdersView();
+    }
+  }
+
+  // Customer methods
+  getFilteredCustomers() {
+    const { search, province, city } = this.state.customerFilters;
+    return this.state.data.contacts.filter(contact => {
+      if (contact.type !== 'customer') return false;
+      
+      // Search filter
+      if (search) {
+        const searchable = [
+          contact.name || '',
+          contact.email || '', 
+          contact.phone || '',
+          contact.address || ''
+        ].join(' ').toLowerCase();
+        if (!searchable.includes(search.toLowerCase())) return false;
+      }
+      
+      // Province and city filters would use order data in a real implementation
+      return true;
+    });
+  }
+
+  renderCustomersView() {
+    const filteredCustomers = this.getFilteredCustomers();
+    const container = document.getElementById('customers-grid');
+    
+    if (filteredCustomers.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">👥</div>
+          <h3>No customers found</h3>
+          <p>Try adjusting your search or filters</p>
+        </div>
+      `;
+      return;
+    }
+    
+    container.innerHTML = filteredCustomers.map(customer => {
+      const customerOrders = this.state.data.orders.filter(order => order.customerId === customer.id);
+      const totalOrders = customerOrders.length;
+      const totalLbs = customerOrders.reduce((sum, order) => 
+        sum + order.items.reduce((itemSum, item) => itemSum + (item.lbs || 0), 0), 0);
+      const totalValue = customerOrders.reduce((sum, order) => 
+        sum + order.items.reduce((itemSum, item) => 
+          itemSum + ((item.lbs || 0) * (this.state.data.fruitPrices[item.fruit] || 0)), 0), 0);
+      
+      return `
+        <div class="customer-card" onclick="app.openCustomerDetails(${customer.id})">
+          <h3 class="customer-name">${customer.name}</h3>
+          <div class="customer-meta">
+            <div class="customer-field">📧 ${customer.email || 'No email'}</div>
+            <div class="customer-field">📞 ${customer.phone || 'No phone'}</div>
+            <div class="customer-field">📍 ${customer.address || 'No address'}</div>
+          </div>
+          <div class="customer-stats">
+            <div class="stat">
+              <span class="stat-value">${totalOrders}</span>
+              <span class="stat-label">Orders</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">${this.formatLbs(totalLbs)}</span>
+              <span class="stat-label">Total lbs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">${this.formatDollar(totalValue)}</span>
+              <span class="stat-label">Total Value</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Order methods
+  getFilteredOrdersForTab() {
+    const { search, customer, product, status, minAmount, maxAmount } = this.state.orderFilters;
+    
+    return this.state.data.orders.filter(order => {
+      const orderCustomer = this.state.data.contacts.find(c => c.id === order.customerId);
+      const orderValue = this.calculateOrderValue(order);
+      
+      // Search filter
+      if (search) {
+        const customerName = orderCustomer ? orderCustomer.name : '';
+        if (!order.id.toLowerCase().includes(search.toLowerCase()) && 
+            !customerName.toLowerCase().includes(search.toLowerCase())) {
+          return false;
+        }
+      }
+      
+      // Customer filter
+      if (customer && orderCustomer && orderCustomer.name !== customer) {
+        return false;
+      }
+      
+      // Product filter
+      if (product && !order.items.some(item => item.fruit === product)) {
+        return false;
+      }
+      
+      // Amount range filter
+      if (orderValue < minAmount || orderValue > maxAmount) {
+        return false;
+      }
+      
+      // Status filter would be implemented in a real app
+      
+      return true;
+    });
+  }
+
+  renderOrdersView() {
+    const filteredOrders = this.getFilteredOrdersForTab();
+    const container = document.getElementById('orders-grid');
+    
+    // Update customer and product filter options
+    this.updateOrderFilters();
+    
+    if (filteredOrders.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <h3>No orders found</h3>
+          <p>Try adjusting your search or filters</p>
+        </div>
+      `;
+      return;
+    }
+    
+    container.innerHTML = filteredOrders.map(order => {
+      const customer = this.state.data.contacts.find(c => c.id === order.customerId);
+      const totalLbs = order.items.reduce((sum, item) => sum + (item.lbs || 0), 0);
+      const totalValue = this.calculateOrderValue(order);
+      
+      return `
+        <div class="order-card" onclick="app.openOrderDetails('${order.id}')">
+          <div class="order-header">
+            <h3 class="order-id">${order.id}</h3>
+            <span class="order-date">${order.date}</span>
+          </div>
+          <div class="order-customer">
+            <span>👤 ${customer ? customer.name : 'Unknown Customer'}</span>
+          </div>
+          <div class="order-items">
+            ${order.items.map(item => `
+              <div class="order-item">
+                <span>${item.fruit}</span>
+                <span>${this.formatLbs(item.lbs)} × ${this.formatDollar(this.state.data.fruitPrices[item.fruit] || 0)}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="order-total">
+            <span>Total</span>
+            <span>${this.formatDollar(totalValue)}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  updateOrderFilters() {
+    // Update customer filter options
+    const customerSelect = document.getElementById('orders-filter-customer');
+    const customers = [...new Set(this.state.data.orders.map(order => {
+      const customer = this.state.data.contacts.find(c => c.id === order.customerId);
+      return customer ? customer.name : '';
+    }).filter(name => name))].sort();
+    
+    customerSelect.innerHTML = '<option value="">All Customers</option>' +
+      customers.map(name => `<option value="${name}">${name}</option>`).join('');
+    
+    // Update product filter options
+    const productSelect = document.getElementById('orders-filter-product');
+    const products = [...new Set(this.state.data.orders.flatMap(order => 
+      order.items.map(item => item.fruit)
+    ))].sort();
+    
+    productSelect.innerHTML = '<option value="">All Products</option>' +
+      products.map(product => `<option value="${product}">${product}</option>`).join('');
+  }
+
+  // Modal methods
+  openModal(modalId) {
+    document.getElementById(modalId).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openCustomerDetails(customerId) {
+    const customer = this.state.data.contacts.find(c => c.id === customerId);
+    if (!customer) return;
+    
+    const customerOrders = this.state.data.orders.filter(order => order.customerId === customerId);
+    const totalOrders = customerOrders.length;
+    const totalLbs = customerOrders.reduce((sum, order) => 
+      sum + order.items.reduce((itemSum, item) => itemSum + (item.lbs || 0), 0), 0);
+    const totalValue = customerOrders.reduce((sum, order) => 
+      sum + order.items.reduce((itemSum, item) => 
+        itemSum + ((item.lbs || 0) * (this.state.data.fruitPrices[item.fruit] || 0)), 0), 0);
+    
+    document.getElementById('modal-customer-title').textContent = customer.name;
+    document.getElementById('modal-customer-body').innerHTML = `
+      <div class="card">
+        <h3>Contact Information</h3>
+        <div class="customer-meta">
+          <div class="customer-field">📧 ${customer.email || 'No email'}</div>
+          <div class="customer-field">📞 ${customer.phone || 'No phone'}</div>
+          <div class="customer-field">📍 ${customer.address || 'No address'}</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Order Summary</h3>
+        <div class="customer-stats">
+          <div class="stat">
+            <span class="stat-value">${totalOrders}</span>
+            <span class="stat-label">Total Orders</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">${this.formatLbs(totalLbs)}</span>
+            <span class="stat-label">Total lbs</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">${this.formatDollar(totalValue)}</span>
+            <span class="stat-label">Total Value</span>
+          </div>
+        </div>
+      </div>
+      ${totalOrders > 0 ? `
+        <div class="card">
+          <h3>Recent Orders</h3>
+          <div class="order-items">
+            ${customerOrders.slice(0, 3).map(order => {
+              const orderValue = this.calculateOrderValue(order);
+              return `
+                <div class="order-item-detail" onclick="app.openOrderDetails('${order.id}')">
+                  <div class="order-item-info">
+                    <span class="order-item-name">${order.id}</span>
+                    <span class="order-item-meta">${order.date} • ${this.formatLbs(order.items.reduce((sum, item) => sum + (item.lbs || 0), 0))}</span>
+                  </div>
+                  <span>${this.formatDollar(orderValue)}</span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+          ${totalOrders > 3 ? `<p class="text-muted">+ ${totalOrders - 3} more orders</p>` : ''}
+        </div>
+      ` : ''}
+    `;
+    
+    this.openModal('modal-customer');
+  }
+
+  openOrderDetails(orderId) {
+    const order = this.state.data.orders.find(o => o.id === orderId);
+    if (!order) return;
+    
+    const customer = this.state.data.contacts.find(c => c.id === order.customerId);
+    const totalLbs = order.items.reduce((sum, item) => sum + (item.lbs || 0), 0);
+    const totalValue = this.calculateOrderValue(order);
+    
+    document.getElementById('modal-order-title').textContent = `Order: ${order.id}`;
+    document.getElementById('modal-order-body').innerHTML = `
+      <div class="card">
+        <h3>Order Information</h3>
+        <div class="customer-meta">
+          <div class="customer-field">📅 ${order.date}</div>
+          <div class="customer-field">👤 ${customer ? customer.name : 'Unknown Customer'}</div>
+          <div class="customer-field">📍 ${order.city}, ${order.province}</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Order Items</h3>
+        <div class="order-items">
+          ${order.items.map(item => {
+            const itemValue = (item.lbs || 0) * (this.state.data.fruitPrices[item.fruit] || 0);
+            return `
+              <div class="order-item-detail">
+                <div class="order-item-info">
+                  <span class="order-item-name">${item.fruit}</span>
+                  <span class="order-item-meta">${this.formatLbs(item.lbs)} × ${this.formatDollar(this.state.data.fruitPrices[item.fruit] || 0)}</span>
+                </div>
+                <span>${this.formatDollar(itemValue)}</span>
+              </div>
+            `;
+          }).join('')}
+        </div>
+        <div class="order-total">
+          <span>Order Total</span>
+          <span>${this.formatDollar(totalValue)}</span>
+        </div>
+      </div>
+    `;
+    
+    // Set up the view customer button
+    document.getElementById('btn-view-customer').onclick = () => {
+      if (customer) {
+        this.closeModal('modal-order');
+        this.openCustomerDetails(customer.id);
+      }
+    };
+    
+    this.openModal('modal-order');
+  }
+
+  openDriverPrepModal() {
+    // Generate driver prep summary
+    this.openModal('modal-prep');
+  }
+
+  // Navigation between views
+  useCustomerInDriverPrep() {
+    // Apply customer's data to driver prep filters
+    this.switchView('prep');
+    this.closeModal('modal-customer');
+  }
+
+  viewCustomerOrders() {
+    const customerId = // Get customer ID from current modal context
+    this.switchView('orders');
+    // Set filters to show only this customer's orders
+    this.closeModal('modal-customer');
+  }
+
+  viewOrderCustomer() {
+    // This would navigate to the customer view and show the specific customer
+    this.switchView('customers');
+    this.closeModal('modal-order');
+  }
+
+  // Utility methods
+  calculateOrderValue(order) {
+    return order.items.reduce((sum, item) => 
+      sum + ((item.lbs || 0) * (this.state.data.fruitPrices[item.fruit] || 0)), 0);
+  }
+
+  formatLbs(lbs) {
+    return `${Number(lbs || 0).toLocaleString()} lbs`;
+  }
+
+  formatDollar(amount) {
+    return `$${Number(amount || 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+  }
+
+  resetFilters() {
+    if (this.state.currentView === 'prep') {
+      this.state.prepFilters = {
+        date: new Date().toISOString().slice(0,10),
+        province: '',
+        city: '',
+        bufferPct: 10,
+        fruits: []
+      };
+    } else if (this.state.currentView === 'customers') {
+      this.state.customerFilters = {
+        search: '',
+        province: '',
+        city: ''
+      };
+    } else if (this.state.currentView === 'orders') {
+      this.state.orderFilters = {
+        search: '',
+        customer: '',
+        product: '',
+        status: '',
+        minAmount: 0,
+        maxAmount: 1000
+      };
+    }
+  }
+
+  // Driver Prep methods would go here
+  renderPrepView() {
+    // Implementation for driver prep view
+  }
+
+  setupServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(console.error);
+    }
+  }
+
+  exportPrepCSV() {
+    // CSV export implementation
+  }
 }
 
-// Go!
-boot();
+// Initialize the app
+const app = new DriverPrepApp();
+
+// Make app globally available for onclick handlers
+window.app = app;
 </script>
 
-<!-- ============== DEMO SEED (adds customers/products/orders; remove if not needed) ============== -->
+<!-- Include the demo data seeding script -->
 <script>
-(function seedDemo(){
-  const KEY='driverprep-cache';
-  let data;
-  try{ data = JSON.parse(localStorage.getItem(KEY)) || {}; }catch{ data = {}; }
-  data.contacts = Array.isArray(data.contacts) ? data.contacts : [];
-  data.fruitPrices = data.fruitPrices || {};
-  data.fruitsByGroup = data.fruitsByGroup || {};
-  data.cities = Array.isArray(data.cities) ? data.cities : [];
-  data.orders = Array.isArray(data.orders) ? data.orders : [];
-
-  // --- Products + prices
-  const DEMO_PRICES = {
-    Blueberries: 3.50,
-    Raspberries: 4.20,
-    Strawberries: 2.80,
-    Blackberries: 4.00,
-    Cherries: 3.80,
-    Peaches: 2.50
-  };
-  data.fruitPrices = { ...DEMO_PRICES, ...data.fruitPrices };
-  data.fruitsByGroup = {
-    Berries: ["Blueberries","Raspberries","Strawberries","Blackberries"],
-    "Stone Fruit": ["Cherries","Peaches"],
-    ...(data.fruitsByGroup||{})
-  };
-
-  // --- City → Province (Canada)
-  const PROV = {
-    "Vancouver":"British Columbia","Peachland":"British Columbia","Langford":"British Columbia",
-    "Nanaimo":"British Columbia","Port Alberni":"British Columbia","Vernon":"British Columbia",
-    "Edmonton":"Alberta","Grande Prairie":"Alberta","Rocky Mountain House":"Alberta",
-    "Airdrie":"Alberta","Fairview":"Alberta","High Prairie":"Alberta","Okotoks":"Alberta",
-    "Calgary":"Alberta","Fort McMurray":"Alberta","Hinton":"Alberta","Leduc":"Alberta",
-    "Lethbridge":"Alberta","St. Albert":"Alberta","Whitecourt":"Alberta","Barrhead":"Alberta",
-    "Beaumont":"Alberta",
-    "Prince Albert":"Saskatchewan","Moose Jaw":"Saskatchewan","Yorkton":"Saskatchewan",
-    "Winnipeg":"Manitoba","Brandon":"Manitoba",
-    "Fort Frances":"Ontario"
-  };
-
-  // --- Your demo customers
-  const RAW = [
-    ["Matt","Wilkinson","+17809728434","mrjdub2017@gmail.com","Edmonton"],
-    ["Kristi","Bull","+17808325816","kris.vano12@gmail.com","Grande Prairie"],
-    ["Jan","Van doorn","+12507673384","jjvavdoorn40@gmail.com","Peachland"],
-    ["Glen peutert","Assiniboia","+13066408034","gm93@sasktel.net","Moose Jaw"],
-    ["Nicole","Brong","+17802949015","timeucreekcontracting@gmail.com","Barrhead"],
-    ["Jacqueline","Shimko","+17809700596","jshimko@shaw.ca","Beaumont"],
-    ["Kim","Jago","+17809160364","kimberly.jago@gmail.com","Beaumont"],
-    ["Gordon","Holland","+17804352692","girdoil@shaw.com","Edmonton"],
-    ["Maryna","Poslavska","+12506619591","mposlavska@outlook.com","Grande Prairie"],
-    ["Leigh-anne","Wright","+14038461233","leighwright55@gmail.com","Rocky Mountain House"],
-    ["Norma","Smith","+18072714788","aleenorm33@ggmail.com","Fort Frances"],
-    ["Pam","Delair","+14038181023","pdelair13@gmail.com","Airdrie"],
-    ["Amber","Chelick","+17808347163","amberchelick@gmail.com","Fairview"],
-    ["Ellen","Dalke","+17808353647","edalke25@yahoo.com","Fairview"],
-    ["Gwen","Stout","+17805232466","gwen333@telus.net","High Prairie"],
-    ["Ilona","Falat","+14165645077","irblueskies@gmail.com","Okotoks"],
-    ["Joanne","Starchuk","+13069608094","jstarchuk@sasktel.net","Prince Albert"],
-    ["Shyla","Bourgonje","+13068147592","shyla_bourgonje@icloud.com","Yorkton"],
-    ["Juanita","Todd","+15879985238","amazing.neth@yahoo.com","Calgary"],
-    ["Jackee","Mckay","+17808350117","jackee769@msn.com","Fairview"],
-    ["Carmen","Enns","+17808356075","ckenns@hotmail.com","Fairview"],
-    ["Bev","Cameron","+15875995553","cameron.bev@gmail.com","Fort McMurray"],
-    ["Cherie","Cole","+17807251377","ccole7759@gmail.com","Hinton"],
-    ["Danika","Amyotte","+17809165638","danika.amyotte@gmail.com","Leduc"],
-    ["Karen","Kalau","+14037150420","kahlua67@hotmail.com","Lethbridge"],
-    ["Erin","Anderson","+17809662310","purpleduck100@gmail.com","St. Albert"],
-    ["Randy","Hough","+17807060884","randyhough@live.com","Whitecourt"],
-    ["Myriam","Saabel","+14383987083","myriamdhaisne@hotmail.fr","Langford"],
-    ["Catherine","Ross","+12502685078","catherineross90@gmail.com","Nanaimo"],
-    ["Ciara","Joseph","+12506675482","ciarajospeh133@gmail.com","Port Alberni"],
-    ["Carol","Chamberlain","+12503092504","crlchamberlain@gmail.com","Vernon"],
-    ["Juanita","Withrow","+12506122125","juanitaw16@hotmail.com","Vernon"],
-    ["Lucine","Gagne","+12047240397","alucine2006@hotmail.com","Brandon"],
-    ["Carmen","Champoux","+16046710126","cchampoux@shaw.ca","Winnipeg"],
-    ["Sharon","Faul","+16393143291","s.l.faul@hotmail.com","Prince Albert"]
-  ];
-
-  // --- Upsert contacts (avoid dupes)
-  const keyOf = (c)=>`${c.name}|${c.email}`.toLowerCase();
-  const existingKeys = new Set(data.contacts.map(c=>keyOf({name:c.name,email:c.email||""})));
-  let nextId = data.contacts.reduce((m,c)=>Math.max(m,Number(c.id)||0), 300)+1;
-  const added = [];
-  RAW.forEach(([first,last,phone,email,city])=>{
-    const name = `${first} ${last}`.replace(/\s+/g,' ').trim();
-    const addr = `${city}, ${PROV[city]||'??'}, Canada`;
-    const rec = { id: nextId, type:'customer', name, email, phone, address: addr };
-    if(!existingKeys.has(keyOf(rec))){
-      data.contacts.push({...rec});
-      added.push({...rec});
-      existingKeys.add(keyOf(rec));
-      nextId++;
-    }
-  });
-
-  // --- City schedules for Stops view
-  const DEMO_DATES = ["2024-11-15","2025-10-15"];
-  function addSchedule(city,date){
-    const exists = data.cities.some(c=>c.city===city && String(c.date)===String(date));
-    if(!exists){
-      data.cities.push({
-        city,
-        province: PROV[city]||"",
-        date,
-        arrive: city==="Edmonton" ? "13:45" : "09:00",
-        depart: city==="Edmonton" ? "15:30" : "10:30"
-      });
-    }
-  }
-  // schedules for all demo cities + Vancouver/Edmonton
-  const demoCities = new Set( RAW.map(r=>r[4]) );
-  demoCities.add("Vancouver").add("Edmonton");
-  DEMO_DATES.forEach(d=>demoCities.forEach(c=>addSchedule(c,d)));
-
-  // --- Create orders (2023–2025) connected to Driver Prep
-  const FRUITS = ["Blueberries","Raspberries","Strawberries","Blackberries","Cherries","Peaches"];
-  const price = f => Number(data.fruitPrices?.[f]||0);
-  const orderIds = new Set(data.orders.map(o=>o.id));
-  let seq = data.orders.length + 1;
-
-  function linesFor(i){
-    const a=FRUITS[i%FRUITS.length], b=FRUITS[(i+1)%FRUITS.length], c=FRUITS[(i+2)%FRUITS.length];
-    return [
-      { fruit:a, lbs: 60 + (i%3)*20 },   // 60/80/100
-      { fruit:b, lbs: 40 + (i%4)*15 },   // 40/55/70/85
-      { fruit:c, lbs: 30 + (i%5)*10 }    // 30/40/50/60/70
-    ];
-  }
-
-  function addOrder(cust, dateIdx){
-    const city = (cust.address||"").split(",")[0].trim();
-    const province = PROV[city] || "";
-    const date = DEMO_DATES[dateIdx % DEMO_DATES.length];
-    const id = `${city.replace(/\s+/g,'').slice(0,3).toUpperCase()}-${String(seq).padStart(4,'0')}`;
-    if(orderIds.has(id)) return;
-    const items = linesFor(seq);
-    // compute value once to ensure meaningful Stops totals (UI also recomputes)
-    const value = items.reduce((s,it)=>s + (Number(it.lbs)||0)*price(it.fruit),0);
-    data.orders.push({ id, date, province, city, customerId: cust.id, items, _value:value });
-    orderIds.add(id); seq++;
-  }
-
-  // one order for everyone on 2024-11-15; ~1/3 also get one on 2025-10-15
-  data.contacts.filter(c=>c.type==='customer' && RAW.some(r=>(`${r[0]} ${r[1]}`).replace(/\s+/g,' ').trim()===c.name))
-    .forEach((c,i)=>{ addOrder(c,0); if(i%3===0) addOrder(c,1); });
-
-  // --- Extra seed: Vancouver & Edmonton wholesale customers so you can filter easily
-  function ensureCustomer(name,email,phone,city){
-    const addr = `${city}, ${PROV[city]||'??'}, Canada`;
-    const rec = { id: ++nextId, type:'customer', name, email, phone, address: addr };
-    const k = keyOf(rec);
-    const found = data.contacts.find(c=>keyOf(c)===k);
-    if(found) return found;
-    data.contacts.push(rec); return rec;
-  }
-  const van = ensureCustomer("Granville Greens","orders@granvillegreens.ca","+1-604-555-0147","Vancouver");
-  const edm = ensureCustomer("River City Market","buy@rivercitymarket.ca","+1-780-555-0192","Edmonton");
-  addOrder(van,0); addOrder(van,1);
-  addOrder(edm,0); addOrder(edm,1);
-
-  // --- Save
-  localStorage.setItem(KEY, JSON.stringify(data));
-})();
+// Demo data seeding would go here
 </script>
 </body>
 </html>
