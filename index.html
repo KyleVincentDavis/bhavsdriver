@@ -16,270 +16,97 @@
     &quot;src&quot;: &quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0OCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EUzwvdGV4dD4KPC9zdmc+&quot;,
     &quot;sizes&quot;: &quot;192x192&quot;,
     &quot;type&quot;: &quot;image/svg+xml&quot;
-  }, {
-    &quot;src&quot;: &quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9IjI1NiIgeT0iMjc2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTI4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkRQPjwvdGV4dD4KPC9zdmc+&quot;,
-    &quot;sizes&quot;: &quot;512x512&quot;,
-    &quot;type&quot;: &quot;image/svg+xml&quot;
-  }]
-}">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="DriverPrep">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0OCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EUzwvdGV4dD4KPC9zdmc+">
+  }]}
+">
 <style>
-:root{ 
-  --bg:#0b0e1b; 
-  --bg-elev:#0f1222; 
-  --card:#161a31; 
-  --muted:#8b90b0; 
-  --text:#e8ebff; 
-  --border:#272a44; 
-  --chip:#1b2150; 
-  --focus:#3b82f6; 
-  --accent:#22c55e; 
-  --shadow:0 10px 30px rgba(0,0,0,.35); 
-  --spacing-xs:4px; 
-  --spacing-sm:8px; 
-  --spacing-md:12px; 
-  --spacing-lg:16px; 
-  --spacing-xl:20px; 
-}
+:root{ --bg:#0b0e1b; --bg-elev:#0f1222; --card:#161a31; --muted:#8b90b0; --text:#e8ebff; --border:#272a44; --chip:#1b2150; --focus:#3b82f6; --accent:#22c55e; --shadow:0 10px 30px rgba(0,0,0,.35); }
 *{box-sizing:border-box}
-html,body{height:100%; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: transparent;}
-body{ 
-  margin:0; 
-  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; 
-  background:var(--bg); 
-  color:var(--text); 
-  -webkit-font-smoothing:antialiased; 
-  -moz-osx-font-smoothing:grayscale; 
-  padding-bottom:calc(64px + env(safe-area-inset-bottom)); 
-  overflow-x:hidden; 
-  line-height:1.5; 
-}
-/* Top App Bar - Mobile Optimized */
-.top{ 
-  position:sticky; 
-  top:0; 
-  z-index:20; 
-  padding:var(--spacing-sm) var(--spacing-lg) calc(var(--spacing-sm) + env(safe-area-inset-top)) var(--spacing-lg); 
-  border-bottom:1px solid var(--border); 
-  background:linear-gradient(180deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); 
-  backdrop-filter: blur(10px); 
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center; 
-  gap:var(--spacing-md); 
-  box-shadow:0 2px 10px rgba(0,0,0,.1); 
-}
-.brand{display:flex; align-items:center; gap:var(--spacing-sm)}
-.brand .logo{width:28px; height:28px; border-radius:8px; background:var(--focus); display:grid; place-items:center; color:white; font-weight:800; font-size:12px;}
-.top h1{margin:0; font-size:clamp(16px, 4vw, 18px); font-weight:600;}
-.top .actions{display:flex; align-items:center; gap:var(--spacing-sm); flex-shrink:0;}
-.icon-btn{ 
-  width:40px; 
-  height:40px; 
-  border-radius:12px; 
-  border:1px solid var(--border); 
-  background:var(--card); 
-  display:grid; 
-  place-items:center; 
-  color:var(--text); 
-  cursor:pointer; 
-  transition:transform .08s ease, box-shadow .1s ease; 
-  font-size:16px; 
-  touch-action:manipulation; 
-}
-.icon-btn:active{ transform:scale(.96); box-shadow:0 4px 12px rgba(59,130,246,.3); }
-/* Header search for customers - Mobile */
-.header-search{ 
-  background:#0f1330; 
-  color:var(--text); 
-  border:1px solid var(--border); 
-  border-radius:12px; 
-  padding:var(--spacing-sm) var(--spacing-md); 
-  font-size:14px; 
-  min-width:140px; 
-  flex:1; 
-  max-width:200px; 
-}
-/* Cards, Panels - Responsive */
-.wrap{max-width:1200px; margin:var(--spacing-lg) auto; padding:0 var(--spacing-lg)}
-.cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:var(--spacing-md); margin-bottom:var(--spacing-lg)}
-.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:var(--spacing-md); box-shadow:var(--shadow); transition:transform .1s ease;}
-.card:active{transform:scale(.98);}
-.card-title{font-size:12px; color:var(--muted); margin-bottom:var(--spacing-xs); text-transform:uppercase; letter-spacing:0.5px;}
-.kpi{font-size:clamp(20px, 6vw, 28px); font-weight:800; line-height:1.2;}
-.grid{display:grid; grid-template-columns:1fr; gap:var(--spacing-lg)} /* Stack on mobile */
-@media (min-width:768px){.grid{grid-template-columns:1fr 1fr;}}
-.panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:var(--spacing-lg); box-shadow:var(--shadow); margin-bottom:var(--spacing-lg);}
-.panel h3{margin:0 0 var(--spacing-md) 0; font-size:clamp(16px, 4vw, 18px); font-weight:600;}
-/* Tables - Mobile Horizontal Scroll */
-.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px; margin-bottom:var(--spacing-md); -webkit-overflow-scrolling: touch;}
-.table{width:auto; min-width:100%; border-collapse:collapse; font-size:clamp(12px, 3.5vw, 14px);}
-.table th,.table td{padding:var(--spacing-sm) var(--spacing-md); border-bottom:1px solid var(--border); white-space:nowrap;} /* No-wrap for mobile */
-.table th{color:var(--muted); background:#151936; text-align:left; position:sticky; top:0; z-index:1; font-weight:600;}
-.table tr:hover td{background:#14183a;}
-.table a{ color:var(--focus); text-decoration:none; } .table a:hover{text-decoration:underline;}
-/* Bottom App Nav - Mobile Optimized */
-.navbar{ 
-  position:fixed; 
-  left:0; 
-  right:0; 
-  bottom:0; 
-  z-index:24; 
-  backdrop-filter: blur(10px); 
-  background:linear-gradient(0deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); 
-  border-top:1px solid var(--border); 
-  padding-bottom:env(safe-area-inset-bottom); 
-}
-.nav{ display:flex; justify-content:space-around; align-items:center; padding:var(--spacing-sm) var(--spacing-md); gap:var(--spacing-sm); }
-.nav button{ 
-  flex:1; 
-  margin:0 var(--spacing-xs); 
-  padding:var(--spacing-md) var(--spacing-sm); 
-  background:none; 
-  border:none; 
-  color:var(--muted); 
-  font-size:clamp(11px, 3vw, 12px); 
-  cursor:pointer; 
-  border-radius:12px; 
-  display:flex; 
-  flex-direction:column; 
-  gap:var(--spacing-xs); 
-  align-items:center; 
-  transition:background .1s ease; 
-  min-height:44px; /* Touch target */
-}
-.nav .ico{font-size:clamp(18px, 5vw, 20px);}
-.nav button.active{ color:var(--text); background:rgba(59,130,246,.14); border:1px solid var(--border); }
+html,body{height:100%}
+body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
+/* Top App Bar */
+.top{ position:sticky; top:0; z-index:20; padding:12px 16px calc(12px + env(safe-area-inset-top)) 16px; border-bottom:1px solid var(--border); background:linear-gradient(180deg, rgba(17,21,42,.92), rgba(17,21,42,.82) 60%, rgba(17,21,42,0)); backdrop-filter: blur(10px); display:flex; justify-content:space-between; align-items:center; gap:12px }
+.brand{display:flex; align-items:center; gap:10px}
+.brand .logo{width:28px; height:28px; border-radius:8px; background:var(--focus); display:grid; place-items:center; color:white; font-weight:800}
+.top h1{margin:0; font-size:18px}
+.top .actions{display:flex; align-items:center; gap:10px}
+.icon-btn{ width:36px; height:36px; border-radius:10px; border:1px solid var(--border); background:var(--card); display:grid; place-items:center; color:var(--text); cursor:pointer; transition:transform .08s ease; }
+.icon-btn:active{ transform:scale(.98) }
+/* Cards, Panels */
+.wrap{max-width:1100px; margin:16px auto; padding:0 16px}
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px}
+.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:14px 16px; box-shadow:var(--shadow)}
+.card-title{font-size:12px; color:var(--muted); margin-bottom:4px}
+.kpi{font-size:26px; font-weight:800}
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow)}
+.panel h3{margin:0 0 10px 0}
+.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px; margin-bottom:12px}
+.table{width:100%; border-collapse:collapse; font-size:14px}
+.table th,.table td{padding:10px 12px; border-bottom:1px solid var(--border)}
+.table th{color:var(--muted); background:#151936; text-align:left; position:sticky; top:0; z-index:1}
+.table tr:hover td{background:#14183a}
+.table a{ color:var(--focus); text-decoration:none } .table a:hover{text-decoration:underline}
+/* Bottom App Nav */
+.navbar{ position:fixed; left:0; right:0; bottom:0; z-index:24; backdrop-filter: blur(10px); background:linear-gradient(0deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); border-top:1px solid var(--border); padding-bottom:env(safe-area-inset-bottom); }
+.nav{ display:flex; justify-content:space-around; align-items:center; padding:8px 8px}
+.nav button{ flex:1; margin:0 6px; padding:8px 10px; background:none; border:none; color:var(--muted); font-size:12px; cursor:pointer; border-radius:12px; display:flex; flex-direction:column; gap:6px; align-items:center }
+.nav .ico{font-size:18px}
+.nav button.active{ color:var(--text); background:rgba(59,130,246,.14); border:1px solid var(--border) }
 /* Views */
 .view{display:none} .view.active{display:block}
-/* MultiSelect - Mobile */
-.ms{ position:relative; min-width:200px; max-width:100%; background:#0f1330; border:1px solid var(--border); border-radius:12px; padding:var(--spacing-sm); cursor:text; font-size:14px; }
+/* MultiSelect */
+.ms{ position:relative; min-width:220px; max-width:320px; background:#0f1330; border:1px solid var(--border); border-radius:12px; padding:6px; cursor:text }
 .ms:focus-within{ outline:2px solid var(--focus); outline-offset:2px; }
-.ms-inner{ display:flex; align-items:center; gap:var(--spacing-xs); flex-wrap:wrap }
-.ms-tags{ display:flex; gap:var(--spacing-xs); flex-wrap:wrap; align-items:center; }
-.ms-tag{ display:inline-flex; align-items:center; gap:var(--spacing-xs); background:var(--chip); border:1px solid var(--border); border-radius:999px; padding:var(--spacing-sm) var(--spacing-md); font-size:12px; white-space:nowrap; max-width:calc(100% - 40px); overflow:hidden; text-overflow:ellipsis; }
-.ms-tag button{ background:none; border:0; color:var(--muted); cursor:pointer; padding:0 0 0 var(--spacing-xs); line-height:1; font-size:16px; min-width:20px; }
-.ms-input{ flex:1 0 60px; min-width:60px; border:0; outline:0; background:transparent; color:var(--text); padding:var(--spacing-sm) var(--spacing-xs); font:inherit; font-size:14px; }
-.ms-actions{ display:flex; align-items:center; gap:var(--spacing-xs); margin-left:auto; flex-shrink:0;}
-.ms-icon{ background:none; border:0; color:var(--muted); cursor:pointer; padding:var(--spacing-xs); line-height:1; font-size:14px; min-width:24px; }
-.ms-list{ position:absolute; top:100%; left:0; right:0; margin-top:var(--spacing-sm); background:#14183a; border:1px solid var(--border); border-radius:12px; padding:var(--spacing-sm) 0; max-height:50vh; overflow:auto; box-shadow:var(--shadow); display:none; z-index:30; }
+.ms-inner{ display:flex; align-items:center; gap:6px; flex-wrap:wrap }
+.ms-tags{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+.ms-tag{ display:inline-flex; align-items:center; gap:6px; background:var(--chip); border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:12px; white-space:nowrap }
+.ms-tag button{ background:none; border:0; color:var(--muted); cursor:pointer; padding:0 0 0 2px; line-height:1 }
+.ms-input{ flex:1 0 80px; min-width:80px; border:0; outline:0; background:transparent; color:var(--text); padding:6px 4px; font:inherit }
+.ms-actions{ display:flex; align-items:center; gap:6px; margin-left:auto}
+.ms-icon{ background:none; border:0; color:var(--muted); cursor:pointer; padding:2px; line-height:1; font-size:14px }
+.ms-list{ position:absolute; top:100%; left:0; right:0; margin-top:6px; background:#14183a; border:1px solid var(--border); border-radius:12px; padding:6px 0; max-height:260px; overflow:auto; box-shadow:var(--shadow); display:none; z-index:30 }
 .ms.open .ms-list{ display:block }
-.ms-group{ padding:var(--spacing-md) var(--spacing-lg); font-size:12px; color:var(--muted); font-weight:500; }
-.ms-option{ padding:var(--spacing-md) var(--spacing-lg); cursor:pointer; font-size:14px; }
-.ms-option[aria-selected="true"]{ color:#9cc3ff; background:rgba(59,130,246,.1); }
-.ms-option:hover, .ms-option.active{ background:#172058; }
-.ms-empty{ padding:var(--spacing-md) var(--spacing-lg); color:var(--muted); text-align:center; }
-/* Generic Modal - Slide from Top on Mobile */
-.modal-bg{ 
-  position:fixed; 
-  inset:0; 
-  background:rgba(0,0,0,.5); 
-  display:none; 
-  align-items:flex-start; 
-  justify-content:center; 
-  z-index:40; 
-  padding-top:env(safe-area-inset-top); 
-}
-.modal-content{ 
-  width:100%; 
-  max-width:600px; /* Narrower on mobile */
-  max-height:90vh; 
-  background:var(--bg-elev); 
-  border:1px solid var(--border); 
-  border-radius:0 0 16px 16px; /* Rounded bottom */
-  padding:var(--spacing-lg); 
-  overflow:auto; 
-  position:relative; 
-  box-shadow:var(--shadow); 
-  transform:translateY(-100%); /* Start off-screen top */
-  opacity:0; 
-  transition:transform .3s cubic-bezier(0.25,0.46,0.45,0.94), opacity .3s ease; /* Smooth slide */
-}
-.modal-bg.show{display:flex; align-items:flex-start;}
-.modal-bg.show .modal-content{transform:translateY(0); opacity:1;}
-@media (min-width:768px){
-  .modal-content{border-radius:16px; transform:translateY(20px); max-width:900px; max-height:92vh;}
-  .modal-bg.show .modal-content{transform:translateY(0);}
-}
-.modal-header{display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-md); position:sticky; top:0; background:var(--bg-elev); padding-bottom:var(--spacing-sm); margin:-var(--spacing-lg) -var(--spacing-lg) var(--spacing-md); padding:var(--spacing-md) var(--spacing-lg); border-bottom:1px solid var(--border); border-radius:0 0 16px 16px;}
-.modal-title{font-size:clamp(16px, 4vw, 18px); font-weight:700;}
-.modal-actions{display:flex; gap:var(--spacing-sm);}
-.btn{ 
-  border:1px solid var(--border); 
-  background:var(--card); 
-  color:var(--text); 
-  padding:var(--spacing-sm) var(--spacing-md); 
-  border-radius:10px; 
-  cursor:pointer; 
-  font-size:14px; 
-  min-height:36px; 
-  transition:background .1s ease; 
-}
-.btn.primary{ background:var(--focus); color:#fff; border-color:transparent; }
-.btn.ghost{ background:none; color:var(--muted); }
-.btn:active{opacity:0.9;}
-/* FAB - Mobile Safe */
-.fab{ 
-  position:fixed; 
-  right:var(--spacing-lg); 
-  bottom:calc(80px + env(safe-area-inset-bottom)); 
-  width:56px; 
-  height:56px; 
-  border-radius:999px; 
-  background:var(--focus); 
-  color:#fff; 
-  display:grid; 
-  place-items:center; 
-  border:none; 
-  box-shadow:var(--shadow); 
-  cursor:pointer; 
-  font-size:24px; 
-  z-index:10; 
-  transition:transform .1s ease; 
-}
-.fab:active{transform:scale(.95);}
-/* Footer - Hide on Desktop, Show on Mobile */
-.foot{display:none; color:var(--muted); text-align:center; padding:var(--spacing-lg);}
-@media (max-width:768px){.foot{display:block;}}
-/* Mobile-Specific Adjustments */
-@media (max-width:768px){
-  .wrap{margin:var(--spacing-md) var(--spacing-sm); padding:0;}
-  .top{padding:var(--spacing-sm) var(--spacing-md);}
-  .brand .logo{font-size:10px;}
-  .cards{grid-template-columns:1fr; gap:var(--spacing-md);}
-  .grid{gap:var(--spacing-md);}
-  .panel{padding:var(--spacing-md); margin-bottom:var(--spacing-md);}
-  .table{font-size:12px;}
-  .table th,.table td{padding:var(--spacing-xs) var(--spacing-sm);}
-  .nav{padding:var(--spacing-md);}
-  .nav button{padding:var(--spacing-sm) var(--spacing-xs); min-height:48px;}
-  .ms{min-width:100%; max-width:100%;}
-  .ms-tag{max-width:calc(100% - 50px);}
-  .modal-content{max-width:100%; height:100vh; border-radius:0; margin-top:env(safe-area-inset-top);}
-  .modal-header{margin:-var(--spacing-md) -var(--spacing-md) var(--spacing-md); padding:var(--spacing-md);}
-  .fab{bottom:calc(80px + env(safe-area-inset-bottom)); right:var(--spacing-md);}
-}
-/* Landscape Mobile */
-@media (max-height:500px) and (orientation:landscape){
-  .modal-content{max-height:100vh;}
-  .ms-list{max-height:40vh;}
-}
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi){
-  .icon-btn{width:44px; height:44px;}
-}
+.ms-group{ padding:8px 12px; font-size:12px; color:var(--muted) }
+.ms-option{ padding:10px 12px; cursor:pointer; }
+.ms-option[aria-selected="true"]{ color:#9cc3ff }
+.ms-option:hover, .ms-option.active{ background:#172058 }
+.ms-empty{ padding:8px 12px; color:var(--muted) }
+/* Generic Modal */
+.modal-bg{ position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:flex-end; justify-content:center; z-index:40; }
+.modal-content{ width:100%; max-width:900px; max-height:92vh; background:var(--bg-elev); border:1px solid var(--border); border-radius:16px 16px 0 0; padding:16px; overflow:auto; position:relative; box-shadow:var(--shadow); transform:translateY(20px); opacity:0; transition:transform .2s ease, opacity .2s ease; }
+.modal-bg.show{display:flex}
+.modal-bg.show .modal-content{transform:translateY(0); opacity:1}
+.modal-header{display:flex; align-items:center; justify-content:space-between; gap:10px; position:sticky; top:0; background:var(--bg-elev); padding-bottom:8px; margin:-16px -16px 8px; padding:12px 16px; border-bottom:1px solid var(--border); border-radius:16px 16px 0 0}
+.modal-title{font-size:16px; font-weight:700}
+.modal-actions{display:flex; gap:8px}
+.btn{ border:1px solid var(--border); background:var(--card); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:14px }
+.btn.primary{ background:var(--focus); color:#fff; border-color:transparent }
+.btn.ghost{ background:none }
+/* FAB */
+.fab{ position:fixed; right:16px; bottom:calc(80px + env(safe-area-inset-bottom)); width:56px; height:56px; border-radius:999px; background:var(--focus); color:#fff; display:grid; place-items:center; border:none; box-shadow:var(--shadow); cursor:pointer; font-size:22px }
+.foot{color:var(--muted); text-align:center; padding:16px}
+/* Search and Filter */
+.search-filter-bar { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; margin-bottom: 16px; align-items: end; }
+.search-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; color: var(--text); font-size: 14px; }
+.search-box::placeholder { color: var(--muted); }
+.filter-select { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; color: var(--text); font-size: 14px; min-width: 140px; }
+.order-details { margin-top: 16px; }
+.order-item { background: var(--bg-elev); border-radius: 8px; padding: 12px; margin-bottom: 8px; border: 1px solid var(--border); }
+.order-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; }
+.order-items { font-size: 13px; color: var(--muted); }
+.order-total { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); font-weight: 600; }
+@media (max-width:1000px){ .cards{grid-template-columns:1fr} .grid{grid-template-columns:1fr} .search-filter-bar { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <header class="top" role="banner">
-  <div class="brand"><div class="logo">DP</div><h1 id="page-title">Driver Prep</h1></div>
-  <div class="actions" id="top-actions">
-    <!-- Dynamic content set by JS -->
+  <div class="brand"><div class="logo">DP</div><h1>Driver Prep</h1></div>
+  <div class="actions">
+    <button id="btn-filter" class="icon-btn" title="Driver Prep Filters">⚙️</button>
+    <button id="btn-prep" class="icon-btn" title="Open Prep Modal">📦</button>
   </div>
 </header>
+
 <main class="wrap" role="main">
   <div id="view-prep" class="view active">
     <section class="cards" aria-label="KPIs">
@@ -287,26 +114,30 @@ body{
       <div class="card"><div class="card-title">Items / Orders</div><div class="kpi" id="kpi-orders">—</div></div>
       <div class="card"><div class="card-title">Total Value ($)</div><div class="kpi" id="kpi-total-value">—</div></div>
     </section>
+
     <section class="grid">
       <div class="panel">
         <h3>What to Load (lbs)</h3>
+
         <!-- Walk-in buffer -->
-        <div class="card" style="margin:0 0 var(--spacing-md) 0">
-          <label style="display:block; font-size:14px; margin-bottom:var(--spacing-sm);">Walk-in buffer
-            <div style="display:flex; align-items:center; gap:var(--spacing-md); margin-top:var(--spacing-sm)">
-              <input id="buffer" type="range" min="0" max="30" value="10" style="flex:1; -webkit-appearance:none; height:4px; background:var(--border); border-radius:2px;">
-              <span id="buffer-val" style="min-width:40px; text-align:center; font-weight:600;">10%</span>
+        <div class="card" style="margin:0 0 12px 0">
+          <label>Walk-in buffer
+            <div style="display:flex; align-items:center; gap:10px; margin-top:6px">
+              <input id="buffer" type="range" min="0" max="30" value="10" style="flex:1">
+              <span id="buffer-val">10%</span>
             </div>
           </label>
         </div>
+
         <div class="table-wrap">
           <table class="table" id="fruit-table">
             <thead><tr><th>Fruit</th><th>Pre-orders (lbs)</th><th>+ Buffer</th><th>Total to Load</th></tr></thead>
             <tbody><!-- rows --></tbody>
           </table>
         </div>
-        <canvas id="fruit-chart" style="max-height: 250px; width:100%;"></canvas>
+        <canvas id="fruit-chart" style="max-height: 300px;"></canvas>
       </div>
+
       <div class="panel">
         <h3>Stops (matched to filters)</h3>
         <div class="table-wrap">
@@ -317,6 +148,7 @@ body{
         </div>
       </div>
     </section>
+
     <div class="panel">
       <h3>Customers (matched to filters)</h3>
       <div class="table-wrap">
@@ -327,25 +159,41 @@ body{
       </div>
     </div>
   </div>
+
   <div id="view-customers" class="view">
     <div class="panel">
       <h3>Contacts</h3>
+      
+      <!-- NEW: Search and Filter Bar -->
+      <div class="search-filter-bar">
+        <input type="text" id="customer-search" class="search-box" placeholder="Search customers by name, email, phone..." />
+        <select id="customer-filter-province" class="filter-select">
+          <option value="">All Provinces</option>
+        </select>
+        <select id="customer-filter-city" class="filter-select">
+          <option value="">All Cities</option>
+        </select>
+      </div>
+      
       <div class="table-wrap">
         <table class="table" id="contacts-table">
-          <thead><tr><th>Name</th><th>Type</th><th>Email</th><th>Phone</th></tr></thead>
+          <thead><tr><th>Name</th><th>Type</th><th>Email</th><th>Phone</th><th>City</th><th>Province</th></tr></thead>
           <tbody><!-- rows --></tbody>
         </table>
       </div>
     </div>
   </div>
 </main>
+
 <footer class="navbar" role="navigation" aria-label="Bottom Navigation">
   <nav class="nav">
     <button id="nav-prep" class="active" aria-current="page"><span class="ico">📦</span><span>Driver Prep</span></button>
     <button id="nav-customers"><span class="ico">👥</span><span>Customers</span></button>
   </nav>
 </footer>
+
 <button id="fab-prep" class="fab" title="Open Driver Prep">📦</button>
+
 <!-- Driver Prep Modal -->
 <div id="prep-modal" class="modal-bg" aria-hidden="true">
   <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="prep-title">
@@ -360,7 +208,22 @@ body{
     <div id="prep-body" class="modal-body"><!-- filled via JS --></div>
   </div>
 </div>
-<!-- Prep Filters Modal -->
+
+<!-- Customer Details Modal -->
+<div id="customer-modal" class="modal-bg" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="customer-title">
+    <div class="modal-header">
+      <div class="modal-title" id="customer-title">Customer Details</div>
+      <div class="modal-actions">
+        <button id="btn-customer-driverprep" class="btn primary">Use in Driver Prep</button>
+        <button data-close="customer-modal" class="btn ghost" type="button">Close</button>
+      </div>
+    </div>
+    <div id="customer-body" class="modal-body"><!-- filled via JS --></div>
+  </div>
+</div>
+
+<!-- Filters Modal -->
 <div id="filter-modal" class="modal-bg" aria-hidden="true">
   <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="filter-title">
     <div class="modal-header">
@@ -371,12 +234,12 @@ body{
     </div>
     <div class="modal-body">
       <div class="panel" style="margin:0">
-        <div class="cards" style="grid-template-columns:1fr; gap:var(--spacing-md)">
+        <div class="cards" style="grid-template-columns:repeat(2,1fr); gap:12px">
           <label class="card">Date
-            <input id="filter-date" type="date" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
+            <input id="filter-date" type="date" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
           </label>
           <label class="card">Province
-            <select id="filter-province" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
+            <select id="filter-province" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
               <option value="">All</option>
               <option>British Columbia</option>
               <option>Alberta</option>
@@ -387,10 +250,10 @@ body{
             </select>
           </label>
           <label class="card">City
-            <select id="filter-city" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px"></select>
+            <select id="filter-city" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px"></select>
           </label>
           <label class="card" style="align-items:stretch">Fruits
-            <div id="fruit-ms" class="ms" role="combobox" aria-haspopup="listbox" aria-expanded="false" style="margin-top:var(--spacing-sm)">
+            <div id="fruit-ms" class="ms" role="combobox" aria-haspopup="listbox" aria-expanded="false" style="margin-top:6px">
               <div class="ms-inner">
                 <div class="ms-tags" aria-live="polite" aria-relevant="additions removals"></div>
                 <input class="ms-input" type="text" placeholder="Type to search…" aria-autocomplete="list" />
@@ -403,7 +266,7 @@ body{
             </div>
           </label>
         </div>
-        <div style="display:flex; gap:var(--spacing-sm); justify-content:flex-end; margin-top:var(--spacing-lg)">
+        <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
           <button id="filters-reset" class="btn">Reset</button>
           <button id="filters-apply" class="btn primary">Apply</button>
         </div>
@@ -411,47 +274,20 @@ body{
     </div>
   </div>
 </div>
-<!-- Customer Filters Modal -->
-<div id="cust-filter-modal" class="modal-bg" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="cust-filter-title">
-    <div class="modal-header">
-      <div class="modal-title" id="cust-filter-title">Customer Filters</div>
-      <div class="modal-actions">
-        <button data-close="cust-filter-modal" class="btn ghost" type="button">Close</button>
-      </div>
-    </div>
-    <div class="modal-body">
-      <div class="panel" style="margin:0">
-        <div class="cards" style="grid-template-columns:1fr; gap:var(--spacing-md)">
-          <label class="card">Province
-            <select id="cust-filter-province" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
-              <option value="">All Provinces</option>
-            </select>
-          </label>
-          <label class="card">City
-            <select id="cust-filter-city" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
-              <option value="">All Cities</option>
-            </select>
-          </label>
-        </div>
-        <div style="display:flex; gap:var(--spacing-sm); justify-content:flex-end; margin-top:var(--spacing-lg)">
-          <button id="cust-filters-reset" class="btn">Reset</button>
-          <button id="cust-filters-apply" class="btn primary">Apply</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 <footer class="foot">PWA demo. Install to home screen for app feel. Works offline after first load.</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 /*********** LIVE DATA LOADER (Google Sheets via Apps Script) ***********/
 const API_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL'; // e.g., https://script.google.com/macros/s/XXXX/exec
+
 let contacts = [];
 let fruitPrices = {};
 let fruitsByGroup = {};
 let cities = [];
 let orders = [];
+
 // load data (network-first). fall back to localStorage if offline.
 async function loadData() {
   const res = await fetch(`${API_URL}?t=all`, { cache: 'no-store' });
@@ -460,6 +296,7 @@ async function loadData() {
   applyData(data);
   localStorage.setItem('driverprep-cache', JSON.stringify(data));
 }
+
 function applyData(data){
   contacts = data.contacts || [];
   fruitPrices = data.fruitPrices || {};
@@ -467,33 +304,24 @@ function applyData(data){
   cities = data.cities || [];
   orders = data.orders || [];
 }
+
 /*********** HELPERS + STATE ***********/
 const $=sel=>document.querySelector(sel);
+const $$=sel=>document.querySelectorAll(sel);
 const fmtLbs=n=>`${Number(n||0).toLocaleString()} lbs`;
 const fmtDollar=n=>`$${Number(n||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}`;
 const todayISO=new Date().toISOString().slice(0,10);
 const uniqueCitiesFor=(province,date)=>{const set=new Set(cities.filter(c=>(!province||c.province===province)&&(!date||String(c.date)===String(date))).map(c=>c.city));return ["All",...Array.from(set)].map(n=>({label:n,value:n==="All"?"":n}))};
 const state={date:todayISO,province:"",city:"",bufferPct:10,fruits:[]};
-// Customer-specific state for filters
-const custState = { search: '', province: '', city: '' };
 let fruitChart; let currentView='prep';
-let isMobile = window.innerWidth <= 768;
+
+// NEW: Customer view state
+const customerViewState = { search: '', province: '', city: '' };
+
 /*********** MODALS ***********/
-function showModal(id){ 
-  const bg=document.getElementById(id); 
-  bg.classList.add('show'); 
-  bg.setAttribute('aria-hidden','false');
-  if (isMobile && bg.querySelector('.modal-content')) {
-    // Ensure slide animation on mobile
-    bg.querySelector('.modal-content').style.transform = 'translateY(-100%)';
-    setTimeout(() => { bg.querySelector('.modal-content').style.transform = 'translateY(0)'; }, 10);
-  }
-}
-function hideModal(id){ 
-  const bg=document.getElementById(id); 
-  bg.classList.remove('show'); 
-  bg.setAttribute('aria-hidden','true');
-}
+function showModal(id){const bg=document.getElementById(id);bg.classList.add('show');bg.setAttribute('aria-hidden','false')}
+function hideModal(id){const bg=document.getElementById(id);bg.classList.remove('show');bg.setAttribute('aria-hidden','true')}
+
 /*********** DRIVER PREP MODAL CONTENT ***********/
 function openDriverPrepModal(){
   const ord=getFilteredOrders();
@@ -509,7 +337,7 @@ function openDriverPrepModal(){
     <tr><td>${s.city}</td><td>${s.arrive||"—"}</td><td>${s.depart||"—"}</td><td>${s.orders}</td><td>${fmtLbs(s.lbs)}</td><td>${fmtDollar(s.value)}</td><td>${(s.topItems||[]).join(", ")||"—"}</td></tr>
   `).join("");
   const filtersBadge=`
-    <div class="kpi" style="font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:var(--spacing-sm); padding:var(--spacing-sm); background:var(--bg-elev); border-radius:8px; margin-bottom:var(--spacing-md);">
+    <div class="kpi" style="font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px">
       <span>📅 ${state.date||'All'}</span>
       <span>• 🏞️ ${state.province||'All provinces'}</span>
       <span>• 🏙️ ${state.city||'All cities'}</span>
@@ -518,77 +346,136 @@ function openDriverPrepModal(){
     </div>`;
   const html=`
     ${filtersBadge}
-    <section class="cards" style="margin-top:var(--spacing-md); grid-template-columns:repeat(auto-fit, minmax(200px,1fr))">
+    <section class="cards" style="margin-top:8px; grid-template-columns:repeat(3,1fr)">
       <div class="card"><div class="card-title">Total Pre-orders (lbs)</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
       <div class="card"><div class="card-title">Orders</div><div class="kpi">${ord.length}</div></div>
       <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
     </section>
-    <div class="panel" style="margin-top:var(--spacing-lg)">
+    <div class="panel" style="margin-top:12px">
       <h3>What to Load (with Buffer)</h3>
       <div class="table-wrap"><table class="table">
         <thead><tr><th>Fruit</th><th>Pre-orders</th><th>+ Buffer</th><th>Total to Load</th></tr></thead>
-        <tbody>${rowsFruit || `<tr><td colspan="4" style="text-align:center; color:var(--muted);">No items</td></tr>`}</tbody>
+        <tbody>${rowsFruit || `<tr><td colspan="4">No items</td></tr>`}</tbody>
       </table></div>
     </div>
     <div class="panel">
       <h3>Stops</h3>
       <div class="table-wrap"><table class="table">
         <thead><tr><th>City</th><th>Arrival</th><th>Departure</th><th>Orders</th><th>lbs</th><th>Value</th><th>Top Items</th></tr></thead>
-        <tbody>${rowsStops || `<tr><td colspan="7" style="text-align:center; color:var(--muted);">No stops</td></tr>`}</tbody>
+        <tbody>${rowsStops || `<tr><td colspan="7">No stops</td></tr>`}</tbody>
       </table></div>
     </div>
   `;
   document.getElementById('prep-body').innerHTML=html;
   showModal('prep-modal');
 }
-/*********** CUSTOMER MODAL ENHANCEMENT ***********/
-document.addEventListener("click",e=>{
-  if(e.target.tagName==="A" && e.target.dataset.contId){
-    e.preventDefault();
-    const id=Number(e.target.dataset.contId);
-    const cont=contacts.find(c=>c.id===id);
-    if(!cont) return;
-    const custOrders = orders.filter(o => o.customerId === id).sort((a, b) => new Date(b.date) - new Date(a.date));
-    const totalLbs = custOrders.reduce((sum, o) => sum + o.items.reduce((s, it) => s + Number(it.lbs || 0), 0), 0);
-    const totalValue = custOrders.reduce((sum, o) => sum + o.items.reduce((s, it) => s + Number(it.lbs || 0) * (fruitPrices[it.fruit] || 0), 0), 0);
-    const numOrders = custOrders.length;
-    let html = `<div class="panel" style="margin:0"><h3 style="margin-top:0; font-size:clamp(16px,4vw,18px);">${cont.name}</h3>
-      <p style="margin:var(--spacing-sm) 0;"><strong>Email:</strong> ${cont.email || '—'}</p>
-      <p style="margin:var(--spacing-sm) 0;"><strong>Phone:</strong> ${cont.phone || '—'}</p>
-      <p style="margin:var(--spacing-sm) 0;"><strong>Address:</strong> ${cont.address || '—'}</p>
+
+/*********** CUSTOMER DETAILS MODAL ***********/
+function openCustomerDetailsModal(customerId) {
+  const customer = contacts.find(c => c.id === customerId);
+  if (!customer) return;
+  
+  // Get all orders for this customer
+  const customerOrders = orders.filter(o => o.customerId === customerId)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+  // Calculate customer totals
+  const totalOrders = customerOrders.length;
+  const totalLbs = customerOrders.reduce((sum, order) => 
+    sum + order.items.reduce((itemSum, item) => itemSum + (item.lbs || 0), 0), 0);
+  const totalValue = customerOrders.reduce((sum, order) => 
+    sum + order.items.reduce((itemSum, item) => 
+      itemSum + ((item.lbs || 0) * (fruitPrices[item.fruit] || 0)), 0), 0);
+  
+  // Get unique cities and provinces
+  const customerCities = [...new Set(customerOrders.map(o => o.city))];
+  const customerProvinces = [...new Set(customerOrders.map(o => o.province))];
+  
+  let ordersHtml = '';
+  if (customerOrders.length > 0) {
+    ordersHtml = `
+      <div class="order-details">
+        <h3>Order History (${customerOrders.length} orders)</h3>
+        ${customerOrders.map(order => {
+          const orderTotalLbs = order.items.reduce((sum, item) => sum + (item.lbs || 0), 0);
+          const orderTotalValue = order.items.reduce((sum, item) => 
+            sum + ((item.lbs || 0) * (fruitPrices[item.fruit] || 0)), 0);
+          
+          return `
+            <div class="order-item">
+              <div class="order-header">
+                <span>Order #${order.id}</span>
+                <span>${order.date}</span>
+              </div>
+              <div class="order-items">
+                ${order.items.map(item => `
+                  <div>${item.fruit}: ${fmtLbs(item.lbs)} × ${fmtDollar(fruitPrices[item.fruit] || 0)} = ${fmtDollar((item.lbs || 0) * (fruitPrices[item.fruit] || 0))}</div>
+                `).join('')}
+              </div>
+              <div class="order-total">
+                Order Total: ${fmtLbs(orderTotalLbs)} • ${fmtDollar(orderTotalValue)}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
     `;
-    if (cont.type === 'lead') {
-      html += `<div style="margin-top:var(--spacing-md);color:var(--muted); padding:var(--spacing-sm); background:var(--bg-elev); border-radius:8px;">This is a lead. No orders yet.</div>`;
-    } else if (numOrders > 0) {
-      html += `
-        <div class="panel" style="margin-top:var(--spacing-lg)">
-          <h3>Order History</h3>
-          <section class="cards" style="margin-bottom:var(--spacing-md); grid-template-columns:repeat(auto-fit, minmax(150px,1fr))">
-            <div class="card"><div class="card-title">Total Orders</div><div class="kpi">${numOrders}</div></div>
-            <div class="card"><div class="card-title">Total lbs</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
-            <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
-          </section>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th>Date</th><th>City</th><th>Total lbs</th><th>Total Value ($)</th><th>Line Items</th></tr></thead>
-              <tbody>
-      `;
-      custOrders.forEach(o => {
-        const oLbs = o.items.reduce((s, it) => s + Number(it.lbs || 0), 0);
-        const oValue = o.items.reduce((s, it) => s + Number(it.lbs || 0) * (fruitPrices[it.fruit] || 0), 0);
-        const itemsStr = o.items.map(it => `${it.fruit} ${fmtLbs(it.lbs)}`).join(', ');
-        html += `<tr><td>${o.date}</td><td>${o.city}</td><td>${fmtLbs(oLbs)}</td><td>${fmtDollar(oValue)}</td><td style="white-space: normal; max-width: 200px; word-break:break-word;">${itemsStr}</td></tr>`;
-      });
-      html += `</tbody></table></div></div>`;
-    } else {
-      html += `<div style="margin-top:var(--spacing-md);color:var(--muted); padding:var(--spacing-sm); background:var(--bg-elev); border-radius:8px;">No orders yet.</div>`;
-    }
-    html += `</div>`;
-    document.getElementById('prep-body').innerHTML=html;
-    document.getElementById('prep-title').textContent='Customer Details';
-    showModal('prep-modal');
   }
-});
+  
+  const html = `
+    <div class="panel" style="margin:0">
+      <h3 style="margin-top:0">Contact Information</h3>
+      <p><strong>Name:</strong> ${customer.name}</p>
+      <p><strong>Email:</strong> ${customer.email || '—'}</p>
+      <p><strong>Phone:</strong> ${customer.phone || '—'}</p>
+      <p><strong>Address:</strong> ${customer.address || '—'}</p>
+      <p><strong>Type:</strong> ${customer.type || '—'}</p>
+    </div>
+    
+    <div class="panel">
+      <h3>Order Summary</h3>
+      <div class="cards" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 16px;">
+        <div class="card"><div class="card-title">Total Orders</div><div class="kpi">${totalOrders}</div></div>
+        <div class="card"><div class="card-title">Total lbs</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
+        <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
+      </div>
+      <p><strong>Cities:</strong> ${customerCities.join(', ') || '—'}</p>
+      <p><strong>Provinces:</strong> ${customerProvinces.join(', ') || '—'}</p>
+    </div>
+    
+    ${ordersHtml}
+  `;
+  
+  document.getElementById('customer-body').innerHTML = html;
+  document.getElementById('customer-title').textContent = `Customer: ${customer.name}`;
+  
+  // Set up the "Use in Driver Prep" button
+  $('#btn-customer-driverprep').onclick = () => {
+    // Set filters based on this customer's data
+    if (customerCities.length === 1) {
+      state.city = customerCities[0];
+      $('#filter-city').value = state.city;
+    }
+    if (customerProvinces.length === 1) {
+      state.province = customerProvinces[0];
+      $('#filter-province').value = state.province;
+    }
+    
+    hideModal('customer-modal');
+    switchView('prep');
+    renderPrep();
+    
+    // Show a quick confirmation
+    const originalText = $('#btn-customer-driverprep').textContent;
+    $('#btn-customer-driverprep').textContent = 'Filters Applied!';
+    setTimeout(() => {
+      $('#btn-customer-driverprep').textContent = originalText;
+    }, 2000);
+  };
+  
+  showModal('customer-modal');
+}
+
 /*********** MULTISELECT ***********/
 class MultiSelect {
   constructor(root,groups,{placeholder="Type to search…",onChange=()=>{}}={}){
@@ -630,6 +517,7 @@ class MultiSelect {
     if(!any){const empty=document.createElement("div"); empty.className="ms-empty"; empty.textContent="No results"; this.listEl.appendChild(empty)}
   }
 }
+
 /*********** VIEW + RENDER ***********/
 function switchView(viewName){
   if(currentView===viewName)return;
@@ -638,33 +526,9 @@ function switchView(viewName){
   document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById(`view-${viewName}`).classList.add('active');
   document.getElementById(`nav-${viewName}`).classList.add('active');
-  // Update header title and actions
-  const titleEl = document.getElementById('page-title');
-  const actionsEl = document.getElementById('top-actions');
-  if(viewName === 'prep'){
-    titleEl.textContent = 'Driver Prep';
-    actionsEl.innerHTML = `
-      <button id="btn-filter" class="icon-btn" title="Driver Prep Filters">⚙️</button>
-      <button id="btn-prep" class="icon-btn" title="Open Prep Modal">📦</button>
-    `;
-    // Re-attach listeners
-    document.getElementById('btn-filter').addEventListener("click",()=>showModal('filter-modal'));
-    document.getElementById('btn-prep').addEventListener("click",openDriverPrepModal);
-  } else {
-    titleEl.textContent = 'Customers';
-    actionsEl.innerHTML = `
-      <input type="search" id="header-cust-search" class="header-search" placeholder="Search customers..." value="${custState.search}">
-      <button id="btn-cust-filter" class="icon-btn" title="Customer Filters">⚙️</button>
-    `;
-    // Re-attach listeners
-    document.getElementById('header-cust-search').addEventListener('input', e => {
-      custState.search = e.target.value.trim();
-      renderCustomers();
-    });
-    document.getElementById('btn-cust-filter').addEventListener("click",()=>showModal('cust-filter-modal'));
-  }
   if(viewName==='prep'){renderPrep()} else {renderCustomers()}
 }
+
 function getFilteredOrders(){
   return (orders||[]).filter(o =>
     (!state.date || String(o.date)===String(state.date)) &&
@@ -673,35 +537,12 @@ function getFilteredOrders(){
     (state.fruits.length===0 || (o.items||[]).some(it=>state.fruits.includes(it.fruit)))
   );
 }
-// Customer filter helpers
-function getUniqueProvinces() {
-  return [...new Set(contacts.filter(c => c.type === 'customer').map(c => {
-    const parts = (c.address || '').split(',');
-    return parts.length > 1 ? parts[1].trim() : '';
-  }).filter(p => p))].sort();
-}
-function getUniqueCitiesForProvince(province) {
-  const set = new Set();
-  contacts.filter(c => c.type === 'customer' && (!province || c.address.includes(province))).forEach(c => {
-    const parts = (c.address || '').split(',');
-    if (parts.length > 0) set.add(parts[0].trim());
-  });
-  return [...set].sort();
-}
-function filterCustomers() {
-  return contacts.filter(c => c.type === 'customer' && // Only customers
-    (!custState.search || 
-      c.name.toLowerCase().includes(custState.search.toLowerCase()) ||
-      (c.email || '').toLowerCase().includes(custState.search.toLowerCase())
-    ) &&
-    (!custState.province || c.address.includes(custState.province)) &&
-    (!custState.city || c.address.startsWith(custState.city + ','))
-  ).sort((a, b) => a.name.localeCompare(b.name));
-}
+
 function aggregateByFruit(ord){
   const agg={}; (ord||[]).forEach(o=>(o.items||[]).forEach(it=>{ if(!state.fruits.length || state.fruits.includes(it.fruit)){ agg[it.fruit]=(agg[it.fruit]||0)+Number(it.lbs||0) }}));
   return agg;
 }
+
 function aggregateStops(ord){
   const map=new Map();
   (ord||[]).forEach(o=>{
@@ -718,6 +559,7 @@ function aggregateStops(ord){
   });
   return Array.from(map.values()).sort((a,b)=>b.value-a.value);
 }
+
 function aggregateCustomers(ord){
   const map=new Map();
   (ord||[]).forEach(o=>{
@@ -733,6 +575,7 @@ function aggregateCustomers(ord){
   });
   return Array.from(map.values()).map(c=>{c.cities=[...new Set(c.cities)]; c.topItems=[...new Set(c.topItems)]; return c}).sort((a,b)=>b.value-a.value);
 }
+
 function renderPrep(){
   const ord=getFilteredOrders();
   const fruitAgg=aggregateByFruit(ord);
@@ -752,17 +595,7 @@ function renderPrep(){
   });
   if(window.fruitChart)fruitChart.destroy();
   const ctx=document.getElementById("fruit-chart");
-  fruitChart=new Chart(ctx,{
-    type:"bar", 
-    data:{labels,datasets:[{label:"Pre-orders (lbs)",data,backgroundColor:'#3b82f6', borderRadius:4}]}, 
-    options:{ 
-      responsive:true, 
-      maintainAspectRatio:false,
-      plugins:{legend:{display:false}}, 
-      scales:{y:{beginAtZero:true, ticks:{color:var(--muted)}}},
-      animation:{duration:300}
-    }
-  });
+  fruitChart=new Chart(ctx,{type:"bar",data:{labels,datasets:[{label:"Pre-orders (lbs)",data,backgroundColor:'#3b82f6'}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
   // Stops
   const stops=aggregateStops(ord);
   const tb2=$("#stops-table tbody"); tb2.innerHTML="";
@@ -780,43 +613,101 @@ function renderPrep(){
     tb3.appendChild(tr);
   });
 }
-function renderCustomers(){
-  // Populate province select in modal if needed
-  const provSelect = $('#cust-filter-province');
-  if (provSelect.children.length === 1) { // Only "All" exists
-    getUniqueProvinces().forEach(p => {
-      const opt = document.createElement('option');
-      opt.value = p;
-      opt.textContent = p;
-      provSelect.appendChild(opt);
-    });
-  }
-  // Populate city select based on province in modal
-  const citySelect = $('#cust-filter-city');
-  citySelect.innerHTML = '<option value="">All Cities</option>';
-  if (custState.province) {
-    getUniqueCitiesForProvince(custState.province).forEach(city => {
-      const opt = document.createElement('option');
-      opt.value = city;
-      opt.textContent = city;
-      citySelect.appendChild(opt);
-    });
-  }
-  // Render filtered customers
-  const filtered = filterCustomers();
-  const tb=$("#contacts-table tbody"); tb.innerHTML="";
-  filtered.forEach(c=>{
-    const tr=document.createElement("tr");
-    tr.innerHTML=`<td><a href="#" data-cont-id="${c.id}">${c.name}</a></td><td>${c.type}</td><td>${c.email}</td><td>${c.phone||'—'}</td>`;
-    tb.appendChild(tr);
+
+// NEW: Enhanced customer view with search and filter
+function renderCustomers() {
+  const searchStr = customerViewState.search.toLowerCase();
+  const provinceFilter = customerViewState.province;
+  const cityFilter = customerViewState.city;
+  
+  // Get customer cities and provinces from their orders
+  const customerOrdersMap = new Map();
+  orders.forEach(order => {
+    if (!customerOrdersMap.has(order.customerId)) {
+      customerOrdersMap.set(order.customerId, []);
+    }
+    customerOrdersMap.get(order.customerId).push(order);
   });
-  // If no results
-  if (filtered.length === 0) {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `<td colspan="4" style="text-align:center; color:var(--muted); padding:var(--spacing-lg);">No customers match the filters.</td>`;
-    tb.appendChild(tr);
-  }
+  
+  const filteredContacts = contacts.filter(contact => {
+    // Filter by type
+    if (contact.type !== 'customer') return false;
+    
+    // Filter by search string
+    if (searchStr) {
+      const searchable = [
+        contact.name || '',
+        contact.email || '', 
+        contact.phone || '',
+        contact.address || ''
+      ].join(' ').toLowerCase();
+      if (!searchable.includes(searchStr)) return false;
+    }
+    
+    // Filter by province and city using order data
+    const customerOrders = customerOrdersMap.get(contact.id) || [];
+    const customerCities = [...new Set(customerOrders.map(o => o.city))];
+    const customerProvinces = [...new Set(customerOrders.map(o => o.province))];
+    
+    if (provinceFilter && !customerProvinces.includes(provinceFilter)) return false;
+    if (cityFilter && !customerCities.includes(cityFilter)) return false;
+    
+    return true;
+  }).sort((a, b) => a.name.localeCompare(b.name));
+  
+  const tbody = $("#contacts-table tbody");
+  tbody.innerHTML = "";
+  
+  filteredContacts.forEach(contact => {
+    const customerOrders = customerOrdersMap.get(contact.id) || [];
+    const customerCities = [...new Set(customerOrders.map(o => o.city))];
+    const customerProvinces = [...new Set(customerOrders.map(o => o.province))];
+    
+    const tr = document.createElement("tr");
+    tr.style.cursor = "pointer";
+    tr.innerHTML = `
+      <td>${contact.name}</td>
+      <td>${contact.type}</td>
+      <td>${contact.email || '—'}</td>
+      <td>${contact.phone || '—'}</td>
+      <td>${customerCities.join(', ') || '—'}</td>
+      <td>${customerProvinces.join(', ') || '—'}</td>
+    `;
+    
+    tr.addEventListener('click', () => {
+      openCustomerDetailsModal(contact.id);
+    });
+    
+    tbody.appendChild(tr);
+  });
 }
+
+// NEW: Fill customer filter dropdowns
+function fillCustomerFilters() {
+  // Get unique provinces and cities from orders
+  const allProvinces = new Set();
+  const allCities = new Set();
+  
+  orders.forEach(order => {
+    if (order.province) allProvinces.add(order.province);
+    if (order.city) allCities.add(order.city);
+  });
+  
+  // Fill province filter
+  const provinceSelect = $('#customer-filter-province');
+  provinceSelect.innerHTML = '<option value="">All Provinces</option>';
+  Array.from(allProvinces).sort().forEach(province => {
+    provinceSelect.innerHTML += `<option value="${province}">${province}</option>`;
+  });
+  
+  // Fill city filter
+  const citySelect = $('#customer-filter-city');
+  citySelect.innerHTML = '<option value="">All Cities</option>';
+  Array.from(allCities).sort().forEach(city => {
+    citySelect.innerHTML += `<option value="${city}">${city}</option>`;
+  });
+}
+
 /*********** EXPORT CSV ***********/
 function exportPrepCSV(){
   const ord=getFilteredOrders();
@@ -835,14 +726,15 @@ function exportPrepCSV(){
   const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"}); const url=URL.createObjectURL(blob);
   const a=document.createElement('a'); a.href=url; a.download=`driver-prep-${state.date||'all'}.csv`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
 }
+
 /*********** INIT ***********/
 function fillCitySelect(){
   const opts=uniqueCitiesFor(state.province,state.date);
   $("#filter-city").innerHTML=opts.map(o=>`<option value="${o.value}">${o.label}</option>`).join("");
   state.city="";
 }
+
 async function boot(){
-  isMobile = window.innerWidth <= 768;
   // Try live first, then cached
   try {
     await loadData();
@@ -853,56 +745,62 @@ async function boot(){
   }
   init();
 }
+
 function init(){
   // default demo date (if your sheet uses other dates, pick one from cities or orders)
   const d=(cities[0]?.date)||"2025-10-08"; state.date=String(d);
   $("#filter-date").value=state.date; fillCitySelect();
+
   const ms=new MultiSelect($("#fruit-ms"),fruitsByGroup,{onChange:(vals)=>{state.fruits=vals;}});
   window.fruitFilter=ms;
+
   // filter inputs
   $("#filter-date").addEventListener("change",e=>{state.date=e.target.value; fillCitySelect(); renderPrep();});
   $("#filter-province").addEventListener("change",e=>{state.province=e.target.value; fillCitySelect(); renderPrep();});
   $("#filter-city").addEventListener("change",e=>{state.city=e.target.value; renderPrep();});
+
   // buffer slider
   $("#buffer").addEventListener("input",e=>{
     state.bufferPct=Number(e.target.value);
     $("#buffer-val").textContent=`${state.bufferPct}%`;
     renderPrep();
   });
-  // Customer filter modal inputs (attached once)
-  $('#cust-filter-province').addEventListener('change', e => {
-    custState.province = e.target.value;
-    custState.city = ''; // Reset city
-    $('#cust-filter-city').innerHTML = '<option value="">All Cities</option>';
-    if (custState.province) {
-      getUniqueCitiesForProvince(custState.province).forEach(city => {
-        const opt = document.createElement('option');
-        opt.value = city;
-        opt.textContent = city;
-        $('#cust-filter-city').appendChild(opt);
-      });
-    }
+
+  // NEW: Customer search and filter
+  $("#customer-search").addEventListener("input", e => {
+    customerViewState.search = e.target.value;
     renderCustomers();
   });
-  $('#cust-filter-city').addEventListener('change', e => {
-    custState.city = e.target.value;
+  
+  $("#customer-filter-province").addEventListener("change", e => {
+    customerViewState.province = e.target.value;
     renderCustomers();
   });
-  // Customer modal apply/reset
-  $("#cust-filters-apply").addEventListener("click",()=>{ hideModal('cust-filter-modal'); renderCustomers(); });
-  $("#cust-filters-reset").addEventListener("click",()=>{
-    custState.province = ''; custState.city = '';
-    $('#cust-filter-province').value = '';
-    $('#cust-filter-city').innerHTML = '<option value="">All Cities</option>';
+  
+  $("#customer-filter-city").addEventListener("change", e => {
+    customerViewState.city = e.target.value;
     renderCustomers();
   });
+
   // open/close modals
+  $("#btn-filter").addEventListener("click",()=>showModal('filter-modal'));
+  $("#btn-prep").addEventListener("click",openDriverPrepModal);
   $("#fab-prep").addEventListener("click",openDriverPrepModal);
   document.querySelectorAll("[data-close]").forEach(btn=>btn.addEventListener("click",e=>hideModal(e.currentTarget.getAttribute("data-close"))));
   document.getElementById('filter-modal').addEventListener('click',e=>{if(e.target.id==='filter-modal')hideModal('filter-modal')});
   document.getElementById('prep-modal').addEventListener('click',e=>{if(e.target.id==='prep-modal')hideModal('prep-modal')});
-  document.getElementById('cust-filter-modal').addEventListener('click',e=>{if(e.target.id==='cust-filter-modal')hideModal('cust-filter-modal')});
-  // apply/reset filters (prep)
+  document.getElementById('customer-modal').addEventListener('click',e=>{if(e.target.id==='customer-modal')hideModal('customer-modal')});
+
+  // NEW: Customer contact clicks
+  document.addEventListener("click", e => {
+    if (e.target.tagName === "A" && e.target.dataset.contId) {
+      e.preventDefault();
+      const id = Number(e.target.dataset.contId);
+      openCustomerDetailsModal(id);
+    }
+  });
+
+  // apply/reset filters
   $("#filters-apply").addEventListener("click",()=>{ hideModal('filter-modal'); renderPrep(); });
   $("#filters-reset").addEventListener("click",()=>{
     state.province=""; state.city=""; state.bufferPct=10; state.fruits=[];
@@ -910,32 +808,40 @@ function init(){
     $("#filter-province").value=""; fillCitySelect(); window.fruitFilter.clear();
     renderPrep();
   });
+
   // nav
   $("#nav-prep").addEventListener("click",()=>switchView('prep'));
-  $("#nav-customers").addEventListener("click",()=>switchView('customers'));
+  $("#nav-customers").addEventListener("click",()=>{
+    fillCustomerFilters();
+    switchView('customers');
+  });
+
   // modal actions
   $("#btn-print").addEventListener("click",()=>window.print());
   $("#btn-export").addEventListener("click",exportPrepCSV);
+
   // initial draw
-  switchView('prep'); // Calls renderPrep
+  renderPrep();
+
   // PWA service worker
   if('serviceWorker' in navigator){
     navigator.serviceWorker.register('./sw.js').catch(console.error);
   }
-  // Resize listener for mobile/desktop switch
-  window.addEventListener('resize', () => { isMobile = window.innerWidth <= 768; });
+
   // esc to close modals
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){
       if(document.getElementById('filter-modal').classList.contains('show')) hideModal('filter-modal');
-      if(document.getElementById('cust-filter-modal').classList.contains('show')) hideModal('cust-filter-modal');
       if(document.getElementById('prep-modal').classList.contains('show')) hideModal('prep-modal');
+      if(document.getElementById('customer-modal').classList.contains('show')) hideModal('customer-modal');
     }
   });
 }
+
 // Go!
 boot();
 </script>
+
 <!-- ============== DEMO SEED (adds customers/products/orders; remove if not needed) ============== -->
 <script>
 (function seedDemo(){
@@ -947,6 +853,7 @@ boot();
   data.fruitsByGroup = data.fruitsByGroup || {};
   data.cities = Array.isArray(data.cities) ? data.cities : [];
   data.orders = Array.isArray(data.orders) ? data.orders : [];
+
   // --- Products + prices
   const DEMO_PRICES = {
     Blueberries: 3.50,
@@ -962,6 +869,7 @@ boot();
     "Stone Fruit": ["Cherries","Peaches"],
     ...(data.fruitsByGroup||{})
   };
+
   // --- City → Province (Canada)
   const PROV = {
     "Vancouver":"British Columbia","Peachland":"British Columbia","Langford":"British Columbia",
@@ -975,6 +883,7 @@ boot();
     "Winnipeg":"Manitoba","Brandon":"Manitoba",
     "Fort Frances":"Ontario"
   };
+
   // --- Your demo customers
   const RAW = [
     ["Matt","Wilkinson","+17809728434","mrjdub2017@gmail.com","Edmonton"],
@@ -1013,6 +922,7 @@ boot();
     ["Carmen","Champoux","+16046710126","cchampoux@shaw.ca","Winnipeg"],
     ["Sharon","Faul","+16393143291","s.l.faul@hotmail.com","Prince Albert"]
   ];
+
   // --- Upsert contacts (avoid dupes)
   const keyOf = (c)=>`${c.name}|${c.email}`.toLowerCase();
   const existingKeys = new Set(data.contacts.map(c=>keyOf({name:c.name,email:c.email||""})));
@@ -1029,6 +939,7 @@ boot();
       nextId++;
     }
   });
+
   // --- City schedules for Stops view
   const DEMO_DATES = ["2024-11-15","2025-10-15"];
   function addSchedule(city,date){
@@ -1047,19 +958,22 @@ boot();
   const demoCities = new Set( RAW.map(r=>r[4]) );
   demoCities.add("Vancouver").add("Edmonton");
   DEMO_DATES.forEach(d=>demoCities.forEach(c=>addSchedule(c,d)));
+
   // --- Create orders (2023–2025) connected to Driver Prep
   const FRUITS = ["Blueberries","Raspberries","Strawberries","Blackberries","Cherries","Peaches"];
   const price = f => Number(data.fruitPrices?.[f]||0);
   const orderIds = new Set(data.orders.map(o=>o.id));
   let seq = data.orders.length + 1;
+
   function linesFor(i){
     const a=FRUITS[i%FRUITS.length], b=FRUITS[(i+1)%FRUITS.length], c=FRUITS[(i+2)%FRUITS.length];
     return [
-      { fruit:a, lbs: 60 + (i%3)*20 }, // 60/80/100
-      { fruit:b, lbs: 40 + (i%4)*15 }, // 40/55/70/85
-      { fruit:c, lbs: 30 + (i%5)*10 } // 30/40/50/60/70
+      { fruit:a, lbs: 60 + (i%3)*20 },   // 60/80/100
+      { fruit:b, lbs: 40 + (i%4)*15 },   // 40/55/70/85
+      { fruit:c, lbs: 30 + (i%5)*10 }    // 30/40/50/60/70
     ];
   }
+
   function addOrder(cust, dateIdx){
     const city = (cust.address||"").split(",")[0].trim();
     const province = PROV[city] || "";
@@ -1072,9 +986,11 @@ boot();
     data.orders.push({ id, date, province, city, customerId: cust.id, items, _value:value });
     orderIds.add(id); seq++;
   }
+
   // one order for everyone on 2024-11-15; ~1/3 also get one on 2025-10-15
   data.contacts.filter(c=>c.type==='customer' && RAW.some(r=>(`${r[0]} ${r[1]}`).replace(/\s+/g,' ').trim()===c.name))
     .forEach((c,i)=>{ addOrder(c,0); if(i%3===0) addOrder(c,1); });
+
   // --- Extra seed: Vancouver & Edmonton wholesale customers so you can filter easily
   function ensureCustomer(name,email,phone,city){
     const addr = `${city}, ${PROV[city]||'??'}, Canada`;
@@ -1088,6 +1004,7 @@ boot();
   const edm = ensureCustomer("River City Market","buy@rivercitymarket.ca","+1-780-555-0192","Edmonton");
   addOrder(van,0); addOrder(van,1);
   addOrder(edm,0); addOrder(edm,1);
+
   // --- Save
   localStorage.setItem(KEY, JSON.stringify(data));
 })();
