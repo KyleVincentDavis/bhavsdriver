@@ -16,78 +16,261 @@
     &quot;src&quot;: &quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0OCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EUzwvdGV4dD4KPC9zdmc+&quot;,
     &quot;sizes&quot;: &quot;192x192&quot;,
     &quot;type&quot;: &quot;image/svg+xml&quot;
-  }]}
-">
+  }, {
+    &quot;src&quot;: &quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9IjI1NiIgeT0iMjc2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTI4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkRQPjwvdGV4dD4KPC9zdmc+&quot;,
+    &quot;sizes&quot;: &quot;512x512&quot;,
+    &quot;type&quot;: &quot;image/svg+xml&quot;
+  }]
+}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="DriverPrep">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiBmaWxsPSIjM2I4MmY2Ii8+Cjx0ZXh0IHg9Ijk2IiB5PSIxMDYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI0OCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5EUzwvdGV4dD4KPC9zdmc+">
 <style>
-:root{ --bg:#0b0e1b; --bg-elev:#0f1222; --card:#161a31; --muted:#8b90b0; --text:#e8ebff; --border:#272a44; --chip:#1b2150; --focus:#3b82f6; --accent:#22c55e; --shadow:0 10px 30px rgba(0,0,0,.35); }
+:root{ 
+  --bg:#0b0e1b; 
+  --bg-elev:#0f1222; 
+  --card:#161a31; 
+  --muted:#8b90b0; 
+  --text:#e8ebff; 
+  --border:#272a44; 
+  --chip:#1b2150; 
+  --focus:#3b82f6; 
+  --accent:#22c55e; 
+  --shadow:0 10px 30px rgba(0,0,0,.35); 
+  --spacing-xs:4px; 
+  --spacing-sm:8px; 
+  --spacing-md:12px; 
+  --spacing-lg:16px; 
+  --spacing-xl:20px; 
+}
 *{box-sizing:border-box}
-html,body{height:100%}
-body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
-/* Top App Bar */
-.top{ position:sticky; top:0; z-index:20; padding:12px 16px calc(12px + env(safe-area-inset-top)) 16px; border-bottom:1px solid var(--border); background:linear-gradient(180deg, rgba(17,21,42,.92), rgba(17,21,42,.82) 60%, rgba(17,21,42,0)); backdrop-filter: blur(10px); display:flex; justify-content:space-between; align-items:center; gap:12px }
-.brand{display:flex; align-items:center; gap:10px}
-.brand .logo{width:28px; height:28px; border-radius:8px; background:var(--focus); display:grid; place-items:center; color:white; font-weight:800}
-.top h1{margin:0; font-size:18px}
-.top .actions{display:flex; align-items:center; gap:10px}
-.icon-btn{ width:36px; height:36px; border-radius:10px; border:1px solid var(--border); background:var(--card); display:grid; place-items:center; color:var(--text); cursor:pointer; transition:transform .08s ease; }
-.icon-btn:active{ transform:scale(.98) }
-/* Header search for customers */
-.header-search{ background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:6px 10px; font-size:14px; min-width:160px; }
-/* Cards, Panels */
-.wrap{max-width:1100px; margin:16px auto; padding:0 16px}
-.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:16px}
-.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:14px 16px; box-shadow:var(--shadow)}
-.card-title{font-size:12px; color:var(--muted); margin-bottom:4px}
-.kpi{font-size:26px; font-weight:800}
-.grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
-.panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; box-shadow:var(--shadow)}
-.panel h3{margin:0 0 10px 0}
-.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px; margin-bottom:12px}
-.table{width:100%; border-collapse:collapse; font-size:14px}
-.table th,.table td{padding:10px 12px; border-bottom:1px solid var(--border)}
-.table th{color:var(--muted); background:#151936; text-align:left; position:sticky; top:0; z-index:1}
-.table tr:hover td{background:#14183a}
-.table a{ color:var(--focus); text-decoration:none } .table a:hover{text-decoration:underline}
-/* Bottom App Nav */
-.navbar{ position:fixed; left:0; right:0; bottom:0; z-index:24; backdrop-filter: blur(10px); background:linear-gradient(0deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); border-top:1px solid var(--border); padding-bottom:env(safe-area-inset-bottom); }
-.nav{ display:flex; justify-content:space-around; align-items:center; padding:8px 8px}
-.nav button{ flex:1; margin:0 6px; padding:8px 10px; background:none; border:none; color:var(--muted); font-size:12px; cursor:pointer; border-radius:12px; display:flex; flex-direction:column; gap:6px; align-items:center }
-.nav .ico{font-size:18px}
-.nav button.active{ color:var(--text); background:rgba(59,130,246,.14); border:1px solid var(--border) }
+html,body{height:100%; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: transparent;}
+body{ 
+  margin:0; 
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; 
+  background:var(--bg); 
+  color:var(--text); 
+  -webkit-font-smoothing:antialiased; 
+  -moz-osx-font-smoothing:grayscale; 
+  padding-bottom:calc(64px + env(safe-area-inset-bottom)); 
+  overflow-x:hidden; 
+  line-height:1.5; 
+}
+/* Top App Bar - Mobile Optimized */
+.top{ 
+  position:sticky; 
+  top:0; 
+  z-index:20; 
+  padding:var(--spacing-sm) var(--spacing-lg) calc(var(--spacing-sm) + env(safe-area-inset-top)) var(--spacing-lg); 
+  border-bottom:1px solid var(--border); 
+  background:linear-gradient(180deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); 
+  backdrop-filter: blur(10px); 
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center; 
+  gap:var(--spacing-md); 
+  box-shadow:0 2px 10px rgba(0,0,0,.1); 
+}
+.brand{display:flex; align-items:center; gap:var(--spacing-sm)}
+.brand .logo{width:28px; height:28px; border-radius:8px; background:var(--focus); display:grid; place-items:center; color:white; font-weight:800; font-size:12px;}
+.top h1{margin:0; font-size:clamp(16px, 4vw, 18px); font-weight:600;}
+.top .actions{display:flex; align-items:center; gap:var(--spacing-sm); flex-shrink:0;}
+.icon-btn{ 
+  width:40px; 
+  height:40px; 
+  border-radius:12px; 
+  border:1px solid var(--border); 
+  background:var(--card); 
+  display:grid; 
+  place-items:center; 
+  color:var(--text); 
+  cursor:pointer; 
+  transition:transform .08s ease, box-shadow .1s ease; 
+  font-size:16px; 
+  touch-action:manipulation; 
+}
+.icon-btn:active{ transform:scale(.96); box-shadow:0 4px 12px rgba(59,130,246,.3); }
+/* Header search for customers - Mobile */
+.header-search{ 
+  background:#0f1330; 
+  color:var(--text); 
+  border:1px solid var(--border); 
+  border-radius:12px; 
+  padding:var(--spacing-sm) var(--spacing-md); 
+  font-size:14px; 
+  min-width:140px; 
+  flex:1; 
+  max-width:200px; 
+}
+/* Cards, Panels - Responsive */
+.wrap{max-width:1200px; margin:var(--spacing-lg) auto; padding:0 var(--spacing-lg)}
+.cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:var(--spacing-md); margin-bottom:var(--spacing-lg)}
+.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:var(--spacing-md); box-shadow:var(--shadow); transition:transform .1s ease;}
+.card:active{transform:scale(.98);}
+.card-title{font-size:12px; color:var(--muted); margin-bottom:var(--spacing-xs); text-transform:uppercase; letter-spacing:0.5px;}
+.kpi{font-size:clamp(20px, 6vw, 28px); font-weight:800; line-height:1.2;}
+.grid{display:grid; grid-template-columns:1fr; gap:var(--spacing-lg)} /* Stack on mobile */
+@media (min-width:768px){.grid{grid-template-columns:1fr 1fr;}}
+.panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:var(--spacing-lg); box-shadow:var(--shadow); margin-bottom:var(--spacing-lg);}
+.panel h3{margin:0 0 var(--spacing-md) 0; font-size:clamp(16px, 4vw, 18px); font-weight:600;}
+/* Tables - Mobile Horizontal Scroll */
+.table-wrap{overflow:auto; border:1px solid var(--border); border-radius:12px; margin-bottom:var(--spacing-md); -webkit-overflow-scrolling: touch;}
+.table{width:auto; min-width:100%; border-collapse:collapse; font-size:clamp(12px, 3.5vw, 14px);}
+.table th,.table td{padding:var(--spacing-sm) var(--spacing-md); border-bottom:1px solid var(--border); white-space:nowrap;} /* No-wrap for mobile */
+.table th{color:var(--muted); background:#151936; text-align:left; position:sticky; top:0; z-index:1; font-weight:600;}
+.table tr:hover td{background:#14183a;}
+.table a{ color:var(--focus); text-decoration:none; } .table a:hover{text-decoration:underline;}
+/* Bottom App Nav - Mobile Optimized */
+.navbar{ 
+  position:fixed; 
+  left:0; 
+  right:0; 
+  bottom:0; 
+  z-index:24; 
+  backdrop-filter: blur(10px); 
+  background:linear-gradient(0deg, rgba(17,21,42,.95), rgba(17,21,42,.85)); 
+  border-top:1px solid var(--border); 
+  padding-bottom:env(safe-area-inset-bottom); 
+}
+.nav{ display:flex; justify-content:space-around; align-items:center; padding:var(--spacing-sm) var(--spacing-md); gap:var(--spacing-sm); }
+.nav button{ 
+  flex:1; 
+  margin:0 var(--spacing-xs); 
+  padding:var(--spacing-md) var(--spacing-sm); 
+  background:none; 
+  border:none; 
+  color:var(--muted); 
+  font-size:clamp(11px, 3vw, 12px); 
+  cursor:pointer; 
+  border-radius:12px; 
+  display:flex; 
+  flex-direction:column; 
+  gap:var(--spacing-xs); 
+  align-items:center; 
+  transition:background .1s ease; 
+  min-height:44px; /* Touch target */
+}
+.nav .ico{font-size:clamp(18px, 5vw, 20px);}
+.nav button.active{ color:var(--text); background:rgba(59,130,246,.14); border:1px solid var(--border); }
 /* Views */
 .view{display:none} .view.active{display:block}
-/* MultiSelect */
-.ms{ position:relative; min-width:220px; max-width:320px; background:#0f1330; border:1px solid var(--border); border-radius:12px; padding:6px; cursor:text }
+/* MultiSelect - Mobile */
+.ms{ position:relative; min-width:200px; max-width:100%; background:#0f1330; border:1px solid var(--border); border-radius:12px; padding:var(--spacing-sm); cursor:text; font-size:14px; }
 .ms:focus-within{ outline:2px solid var(--focus); outline-offset:2px; }
-.ms-inner{ display:flex; align-items:center; gap:6px; flex-wrap:wrap }
-.ms-tags{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
-.ms-tag{ display:inline-flex; align-items:center; gap:6px; background:var(--chip); border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:12px; white-space:nowrap }
-.ms-tag button{ background:none; border:0; color:var(--muted); cursor:pointer; padding:0 0 0 2px; line-height:1 }
-.ms-input{ flex:1 0 80px; min-width:80px; border:0; outline:0; background:transparent; color:var(--text); padding:6px 4px; font:inherit }
-.ms-actions{ display:flex; align-items:center; gap:6px; margin-left:auto}
-.ms-icon{ background:none; border:0; color:var(--muted); cursor:pointer; padding:2px; line-height:1; font-size:14px }
-.ms-list{ position:absolute; top:100%; left:0; right:0; margin-top:6px; background:#14183a; border:1px solid var(--border); border-radius:12px; padding:6px 0; max-height:260px; overflow:auto; box-shadow:var(--shadow); display:none; z-index:30 }
+.ms-inner{ display:flex; align-items:center; gap:var(--spacing-xs); flex-wrap:wrap }
+.ms-tags{ display:flex; gap:var(--spacing-xs); flex-wrap:wrap; align-items:center; }
+.ms-tag{ display:inline-flex; align-items:center; gap:var(--spacing-xs); background:var(--chip); border:1px solid var(--border); border-radius:999px; padding:var(--spacing-sm) var(--spacing-md); font-size:12px; white-space:nowrap; max-width:calc(100% - 40px); overflow:hidden; text-overflow:ellipsis; }
+.ms-tag button{ background:none; border:0; color:var(--muted); cursor:pointer; padding:0 0 0 var(--spacing-xs); line-height:1; font-size:16px; min-width:20px; }
+.ms-input{ flex:1 0 60px; min-width:60px; border:0; outline:0; background:transparent; color:var(--text); padding:var(--spacing-sm) var(--spacing-xs); font:inherit; font-size:14px; }
+.ms-actions{ display:flex; align-items:center; gap:var(--spacing-xs); margin-left:auto; flex-shrink:0;}
+.ms-icon{ background:none; border:0; color:var(--muted); cursor:pointer; padding:var(--spacing-xs); line-height:1; font-size:14px; min-width:24px; }
+.ms-list{ position:absolute; top:100%; left:0; right:0; margin-top:var(--spacing-sm); background:#14183a; border:1px solid var(--border); border-radius:12px; padding:var(--spacing-sm) 0; max-height:50vh; overflow:auto; box-shadow:var(--shadow); display:none; z-index:30; }
 .ms.open .ms-list{ display:block }
-.ms-group{ padding:8px 12px; font-size:12px; color:var(--muted) }
-.ms-option{ padding:10px 12px; cursor:pointer; }
-.ms-option[aria-selected="true"]{ color:#9cc3ff }
-.ms-option:hover, .ms-option.active{ background:#172058 }
-.ms-empty{ padding:8px 12px; color:var(--muted) }
-/* Generic Modal */
-.modal-bg{ position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:flex-end; justify-content:center; z-index:40; }
-.modal-content{ width:100%; max-width:900px; max-height:92vh; background:var(--bg-elev); border:1px solid var(--border); border-radius:16px 16px 0 0; padding:16px; overflow:auto; position:relative; box-shadow:var(--shadow); transform:translateY(20px); opacity:0; transition:transform .2s ease, opacity .2s ease; }
-.modal-bg.show{display:flex}
-.modal-bg.show .modal-content{transform:translateY(0); opacity:1}
-.modal-header{display:flex; align-items:center; justify-content:space-between; gap:10px; position:sticky; top:0; background:var(--bg-elev); padding-bottom:8px; margin:-16px -16px 8px; padding:12px 16px; border-bottom:1px solid var(--border); border-radius:16px 16px 0 0}
-.modal-title{font-size:16px; font-weight:700}
-.modal-actions{display:flex; gap:8px}
-.btn{ border:1px solid var(--border); background:var(--card); color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:14px }
-.btn.primary{ background:var(--focus); color:#fff; border-color:transparent }
-.btn.ghost{ background:none }
-/* FAB */
-.fab{ position:fixed; right:16px; bottom:calc(80px + env(safe-area-inset-bottom)); width:56px; height:56px; border-radius:999px; background:var(--focus); color:#fff; display:grid; place-items:center; border:none; box-shadow:var(--shadow); cursor:pointer; font-size:22px }
-.foot{color:var(--muted); text-align:center; padding:16px}
-@media (max-width:1000px){ .cards{grid-template-columns:1fr} .grid{grid-template-columns:1fr} }
+.ms-group{ padding:var(--spacing-md) var(--spacing-lg); font-size:12px; color:var(--muted); font-weight:500; }
+.ms-option{ padding:var(--spacing-md) var(--spacing-lg); cursor:pointer; font-size:14px; }
+.ms-option[aria-selected="true"]{ color:#9cc3ff; background:rgba(59,130,246,.1); }
+.ms-option:hover, .ms-option.active{ background:#172058; }
+.ms-empty{ padding:var(--spacing-md) var(--spacing-lg); color:var(--muted); text-align:center; }
+/* Generic Modal - Slide from Top on Mobile */
+.modal-bg{ 
+  position:fixed; 
+  inset:0; 
+  background:rgba(0,0,0,.5); 
+  display:none; 
+  align-items:flex-start; 
+  justify-content:center; 
+  z-index:40; 
+  padding-top:env(safe-area-inset-top); 
+}
+.modal-content{ 
+  width:100%; 
+  max-width:600px; /* Narrower on mobile */
+  max-height:90vh; 
+  background:var(--bg-elev); 
+  border:1px solid var(--border); 
+  border-radius:0 0 16px 16px; /* Rounded bottom */
+  padding:var(--spacing-lg); 
+  overflow:auto; 
+  position:relative; 
+  box-shadow:var(--shadow); 
+  transform:translateY(-100%); /* Start off-screen top */
+  opacity:0; 
+  transition:transform .3s cubic-bezier(0.25,0.46,0.45,0.94), opacity .3s ease; /* Smooth slide */
+}
+.modal-bg.show{display:flex; align-items:flex-start;}
+.modal-bg.show .modal-content{transform:translateY(0); opacity:1;}
+@media (min-width:768px){
+  .modal-content{border-radius:16px; transform:translateY(20px); max-width:900px; max-height:92vh;}
+  .modal-bg.show .modal-content{transform:translateY(0);}
+}
+.modal-header{display:flex; align-items:center; justify-content:space-between; gap:var(--spacing-md); position:sticky; top:0; background:var(--bg-elev); padding-bottom:var(--spacing-sm); margin:-var(--spacing-lg) -var(--spacing-lg) var(--spacing-md); padding:var(--spacing-md) var(--spacing-lg); border-bottom:1px solid var(--border); border-radius:0 0 16px 16px;}
+.modal-title{font-size:clamp(16px, 4vw, 18px); font-weight:700;}
+.modal-actions{display:flex; gap:var(--spacing-sm);}
+.btn{ 
+  border:1px solid var(--border); 
+  background:var(--card); 
+  color:var(--text); 
+  padding:var(--spacing-sm) var(--spacing-md); 
+  border-radius:10px; 
+  cursor:pointer; 
+  font-size:14px; 
+  min-height:36px; 
+  transition:background .1s ease; 
+}
+.btn.primary{ background:var(--focus); color:#fff; border-color:transparent; }
+.btn.ghost{ background:none; color:var(--muted); }
+.btn:active{opacity:0.9;}
+/* FAB - Mobile Safe */
+.fab{ 
+  position:fixed; 
+  right:var(--spacing-lg); 
+  bottom:calc(80px + env(safe-area-inset-bottom)); 
+  width:56px; 
+  height:56px; 
+  border-radius:999px; 
+  background:var(--focus); 
+  color:#fff; 
+  display:grid; 
+  place-items:center; 
+  border:none; 
+  box-shadow:var(--shadow); 
+  cursor:pointer; 
+  font-size:24px; 
+  z-index:10; 
+  transition:transform .1s ease; 
+}
+.fab:active{transform:scale(.95);}
+/* Footer - Hide on Desktop, Show on Mobile */
+.foot{display:none; color:var(--muted); text-align:center; padding:var(--spacing-lg);}
+@media (max-width:768px){.foot{display:block;}}
+/* Mobile-Specific Adjustments */
+@media (max-width:768px){
+  .wrap{margin:var(--spacing-md) var(--spacing-sm); padding:0;}
+  .top{padding:var(--spacing-sm) var(--spacing-md);}
+  .brand .logo{font-size:10px;}
+  .cards{grid-template-columns:1fr; gap:var(--spacing-md);}
+  .grid{gap:var(--spacing-md);}
+  .panel{padding:var(--spacing-md); margin-bottom:var(--spacing-md);}
+  .table{font-size:12px;}
+  .table th,.table td{padding:var(--spacing-xs) var(--spacing-sm);}
+  .nav{padding:var(--spacing-md);}
+  .nav button{padding:var(--spacing-sm) var(--spacing-xs); min-height:48px;}
+  .ms{min-width:100%; max-width:100%;}
+  .ms-tag{max-width:calc(100% - 50px);}
+  .modal-content{max-width:100%; height:100vh; border-radius:0; margin-top:env(safe-area-inset-top);}
+  .modal-header{margin:-var(--spacing-md) -var(--spacing-md) var(--spacing-md); padding:var(--spacing-md);}
+  .fab{bottom:calc(80px + env(safe-area-inset-bottom)); right:var(--spacing-md);}
+}
+/* Landscape Mobile */
+@media (max-height:500px) and (orientation:landscape){
+  .modal-content{max-height:100vh;}
+  .ms-list{max-height:40vh;}
+}
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi){
+  .icon-btn{width:44px; height:44px;}
+}
 </style>
 </head>
 <body>
@@ -108,11 +291,11 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
       <div class="panel">
         <h3>What to Load (lbs)</h3>
         <!-- Walk-in buffer -->
-        <div class="card" style="margin:0 0 12px 0">
-          <label>Walk-in buffer
-            <div style="display:flex; align-items:center; gap:10px; margin-top:6px">
-              <input id="buffer" type="range" min="0" max="30" value="10" style="flex:1">
-              <span id="buffer-val">10%</span>
+        <div class="card" style="margin:0 0 var(--spacing-md) 0">
+          <label style="display:block; font-size:14px; margin-bottom:var(--spacing-sm);">Walk-in buffer
+            <div style="display:flex; align-items:center; gap:var(--spacing-md); margin-top:var(--spacing-sm)">
+              <input id="buffer" type="range" min="0" max="30" value="10" style="flex:1; -webkit-appearance:none; height:4px; background:var(--border); border-radius:2px;">
+              <span id="buffer-val" style="min-width:40px; text-align:center; font-weight:600;">10%</span>
             </div>
           </label>
         </div>
@@ -122,7 +305,7 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
             <tbody><!-- rows --></tbody>
           </table>
         </div>
-        <canvas id="fruit-chart" style="max-height: 300px;"></canvas>
+        <canvas id="fruit-chart" style="max-height: 250px; width:100%;"></canvas>
       </div>
       <div class="panel">
         <h3>Stops (matched to filters)</h3>
@@ -188,12 +371,12 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
     </div>
     <div class="modal-body">
       <div class="panel" style="margin:0">
-        <div class="cards" style="grid-template-columns:repeat(2,1fr); gap:12px">
+        <div class="cards" style="grid-template-columns:1fr; gap:var(--spacing-md)">
           <label class="card">Date
-            <input id="filter-date" type="date" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
+            <input id="filter-date" type="date" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
           </label>
           <label class="card">Province
-            <select id="filter-province" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
+            <select id="filter-province" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
               <option value="">All</option>
               <option>British Columbia</option>
               <option>Alberta</option>
@@ -204,10 +387,10 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
             </select>
           </label>
           <label class="card">City
-            <select id="filter-city" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px"></select>
+            <select id="filter-city" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px"></select>
           </label>
           <label class="card" style="align-items:stretch">Fruits
-            <div id="fruit-ms" class="ms" role="combobox" aria-haspopup="listbox" aria-expanded="false" style="margin-top:6px">
+            <div id="fruit-ms" class="ms" role="combobox" aria-haspopup="listbox" aria-expanded="false" style="margin-top:var(--spacing-sm)">
               <div class="ms-inner">
                 <div class="ms-tags" aria-live="polite" aria-relevant="additions removals"></div>
                 <input class="ms-input" type="text" placeholder="Type to search…" aria-autocomplete="list" />
@@ -220,7 +403,7 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
             </div>
           </label>
         </div>
-        <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
+        <div style="display:flex; gap:var(--spacing-sm); justify-content:flex-end; margin-top:var(--spacing-lg)">
           <button id="filters-reset" class="btn">Reset</button>
           <button id="filters-apply" class="btn primary">Apply</button>
         </div>
@@ -239,19 +422,19 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
     </div>
     <div class="modal-body">
       <div class="panel" style="margin:0">
-        <div class="cards" style="grid-template-columns:1fr; gap:12px">
+        <div class="cards" style="grid-template-columns:1fr; gap:var(--spacing-md)">
           <label class="card">Province
-            <select id="cust-filter-province" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
+            <select id="cust-filter-province" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
               <option value="">All Provinces</option>
             </select>
           </label>
           <label class="card">City
-            <select id="cust-filter-city" style="margin-top:6px; width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px; font-size:14px">
+            <select id="cust-filter-city" style="margin-top:var(--spacing-sm); width:100%; background:#0f1330; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:var(--spacing-md); font-size:14px">
               <option value="">All Cities</option>
             </select>
           </label>
         </div>
-        <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:12px">
+        <div style="display:flex; gap:var(--spacing-sm); justify-content:flex-end; margin-top:var(--spacing-lg)">
           <button id="cust-filters-reset" class="btn">Reset</button>
           <button id="cust-filters-apply" class="btn primary">Apply</button>
         </div>
@@ -259,7 +442,7 @@ body{ margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; ba
     </div>
   </div>
 </div>
-<footer class="foot">DEMO SOMETHIG BLAH BLAH</footer>
+<footer class="foot">PWA demo. Install to home screen for app feel. Works offline after first load.</footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
 /*********** LIVE DATA LOADER (Google Sheets via Apps Script) ***********/
@@ -294,9 +477,23 @@ const state={date:todayISO,province:"",city:"",bufferPct:10,fruits:[]};
 // Customer-specific state for filters
 const custState = { search: '', province: '', city: '' };
 let fruitChart; let currentView='prep';
+let isMobile = window.innerWidth <= 768;
 /*********** MODALS ***********/
-function showModal(id){const bg=document.getElementById(id);bg.classList.add('show');bg.setAttribute('aria-hidden','false')}
-function hideModal(id){const bg=document.getElementById(id);bg.classList.remove('show');bg.setAttribute('aria-hidden','true')}
+function showModal(id){ 
+  const bg=document.getElementById(id); 
+  bg.classList.add('show'); 
+  bg.setAttribute('aria-hidden','false');
+  if (isMobile && bg.querySelector('.modal-content')) {
+    // Ensure slide animation on mobile
+    bg.querySelector('.modal-content').style.transform = 'translateY(-100%)';
+    setTimeout(() => { bg.querySelector('.modal-content').style.transform = 'translateY(0)'; }, 10);
+  }
+}
+function hideModal(id){ 
+  const bg=document.getElementById(id); 
+  bg.classList.remove('show'); 
+  bg.setAttribute('aria-hidden','true');
+}
 /*********** DRIVER PREP MODAL CONTENT ***********/
 function openDriverPrepModal(){
   const ord=getFilteredOrders();
@@ -312,7 +509,7 @@ function openDriverPrepModal(){
     <tr><td>${s.city}</td><td>${s.arrive||"—"}</td><td>${s.depart||"—"}</td><td>${s.orders}</td><td>${fmtLbs(s.lbs)}</td><td>${fmtDollar(s.value)}</td><td>${(s.topItems||[]).join(", ")||"—"}</td></tr>
   `).join("");
   const filtersBadge=`
-    <div class="kpi" style="font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px">
+    <div class="kpi" style="font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:var(--spacing-sm); padding:var(--spacing-sm); background:var(--bg-elev); border-radius:8px; margin-bottom:var(--spacing-md);">
       <span>📅 ${state.date||'All'}</span>
       <span>• 🏞️ ${state.province||'All provinces'}</span>
       <span>• 🏙️ ${state.city||'All cities'}</span>
@@ -321,23 +518,23 @@ function openDriverPrepModal(){
     </div>`;
   const html=`
     ${filtersBadge}
-    <section class="cards" style="margin-top:8px; grid-template-columns:repeat(3,1fr)">
+    <section class="cards" style="margin-top:var(--spacing-md); grid-template-columns:repeat(auto-fit, minmax(200px,1fr))">
       <div class="card"><div class="card-title">Total Pre-orders (lbs)</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
       <div class="card"><div class="card-title">Orders</div><div class="kpi">${ord.length}</div></div>
       <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
     </section>
-    <div class="panel" style="margin-top:12px">
+    <div class="panel" style="margin-top:var(--spacing-lg)">
       <h3>What to Load (with Buffer)</h3>
       <div class="table-wrap"><table class="table">
         <thead><tr><th>Fruit</th><th>Pre-orders</th><th>+ Buffer</th><th>Total to Load</th></tr></thead>
-        <tbody>${rowsFruit || `<tr><td colspan="4">No items</td></tr>`}</tbody>
+        <tbody>${rowsFruit || `<tr><td colspan="4" style="text-align:center; color:var(--muted);">No items</td></tr>`}</tbody>
       </table></div>
     </div>
     <div class="panel">
       <h3>Stops</h3>
       <div class="table-wrap"><table class="table">
         <thead><tr><th>City</th><th>Arrival</th><th>Departure</th><th>Orders</th><th>lbs</th><th>Value</th><th>Top Items</th></tr></thead>
-        <tbody>${rowsStops || `<tr><td colspan="7">No stops</td></tr>`}</tbody>
+        <tbody>${rowsStops || `<tr><td colspan="7" style="text-align:center; color:var(--muted);">No stops</td></tr>`}</tbody>
       </table></div>
     </div>
   `;
@@ -355,18 +552,18 @@ document.addEventListener("click",e=>{
     const totalLbs = custOrders.reduce((sum, o) => sum + o.items.reduce((s, it) => s + Number(it.lbs || 0), 0), 0);
     const totalValue = custOrders.reduce((sum, o) => sum + o.items.reduce((s, it) => s + Number(it.lbs || 0) * (fruitPrices[it.fruit] || 0), 0), 0);
     const numOrders = custOrders.length;
-    let html = `<div class="panel" style="margin:0"><h3 style="margin-top:0">${cont.name}</h3>
-      <p><strong>Email:</strong> ${cont.email || '—'}</p>
-      <p><strong>Phone:</strong> ${cont.phone || '—'}</p>
-      <p><strong>Address:</strong> ${cont.address || '—'}</p>
+    let html = `<div class="panel" style="margin:0"><h3 style="margin-top:0; font-size:clamp(16px,4vw,18px);">${cont.name}</h3>
+      <p style="margin:var(--spacing-sm) 0;"><strong>Email:</strong> ${cont.email || '—'}</p>
+      <p style="margin:var(--spacing-sm) 0;"><strong>Phone:</strong> ${cont.phone || '—'}</p>
+      <p style="margin:var(--spacing-sm) 0;"><strong>Address:</strong> ${cont.address || '—'}</p>
     `;
     if (cont.type === 'lead') {
-      html += `<div style="margin-top:8px;color:var(--muted)">This is a lead. No orders yet.</div>`;
+      html += `<div style="margin-top:var(--spacing-md);color:var(--muted); padding:var(--spacing-sm); background:var(--bg-elev); border-radius:8px;">This is a lead. No orders yet.</div>`;
     } else if (numOrders > 0) {
       html += `
-        <div class="panel" style="margin-top:16px">
+        <div class="panel" style="margin-top:var(--spacing-lg)">
           <h3>Order History</h3>
-          <section class="cards" style="margin-bottom:12px; grid-template-columns:repeat(3,1fr)">
+          <section class="cards" style="margin-bottom:var(--spacing-md); grid-template-columns:repeat(auto-fit, minmax(150px,1fr))">
             <div class="card"><div class="card-title">Total Orders</div><div class="kpi">${numOrders}</div></div>
             <div class="card"><div class="card-title">Total lbs</div><div class="kpi">${fmtLbs(totalLbs)}</div></div>
             <div class="card"><div class="card-title">Total Value</div><div class="kpi">${fmtDollar(totalValue)}</div></div>
@@ -380,11 +577,11 @@ document.addEventListener("click",e=>{
         const oLbs = o.items.reduce((s, it) => s + Number(it.lbs || 0), 0);
         const oValue = o.items.reduce((s, it) => s + Number(it.lbs || 0) * (fruitPrices[it.fruit] || 0), 0);
         const itemsStr = o.items.map(it => `${it.fruit} ${fmtLbs(it.lbs)}`).join(', ');
-        html += `<tr><td>${o.date}</td><td>${o.city}</td><td>${fmtLbs(oLbs)}</td><td>${fmtDollar(oValue)}</td><td style="white-space: normal; max-width: 200px;">${itemsStr}</td></tr>`;
+        html += `<tr><td>${o.date}</td><td>${o.city}</td><td>${fmtLbs(oLbs)}</td><td>${fmtDollar(oValue)}</td><td style="white-space: normal; max-width: 200px; word-break:break-word;">${itemsStr}</td></tr>`;
       });
       html += `</tbody></table></div></div>`;
     } else {
-      html += `<div style="margin-top:8px;color:var(--muted)">No orders yet.</div>`;
+      html += `<div style="margin-top:var(--spacing-md);color:var(--muted); padding:var(--spacing-sm); background:var(--bg-elev); border-radius:8px;">No orders yet.</div>`;
     }
     html += `</div>`;
     document.getElementById('prep-body').innerHTML=html;
@@ -555,7 +752,17 @@ function renderPrep(){
   });
   if(window.fruitChart)fruitChart.destroy();
   const ctx=document.getElementById("fruit-chart");
-  fruitChart=new Chart(ctx,{type:"bar",data:{labels,datasets:[{label:"Pre-orders (lbs)",data,backgroundColor:'#3b82f6'}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+  fruitChart=new Chart(ctx,{
+    type:"bar", 
+    data:{labels,datasets:[{label:"Pre-orders (lbs)",data,backgroundColor:'#3b82f6', borderRadius:4}]}, 
+    options:{ 
+      responsive:true, 
+      maintainAspectRatio:false,
+      plugins:{legend:{display:false}}, 
+      scales:{y:{beginAtZero:true, ticks:{color:var(--muted)}}},
+      animation:{duration:300}
+    }
+  });
   // Stops
   const stops=aggregateStops(ord);
   const tb2=$("#stops-table tbody"); tb2.innerHTML="";
@@ -606,7 +813,7 @@ function renderCustomers(){
   // If no results
   if (filtered.length === 0) {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td colspan="4" style="text-align:center; color:var(--muted);">No customers match the filters.</td>`;
+    tr.innerHTML = `<td colspan="4" style="text-align:center; color:var(--muted); padding:var(--spacing-lg);">No customers match the filters.</td>`;
     tb.appendChild(tr);
   }
 }
@@ -635,6 +842,7 @@ function fillCitySelect(){
   state.city="";
 }
 async function boot(){
+  isMobile = window.innerWidth <= 768;
   // Try live first, then cached
   try {
     await loadData();
@@ -714,6 +922,8 @@ function init(){
   if('serviceWorker' in navigator){
     navigator.serviceWorker.register('./sw.js').catch(console.error);
   }
+  // Resize listener for mobile/desktop switch
+  window.addEventListener('resize', () => { isMobile = window.innerWidth <= 768; });
   // esc to close modals
   document.addEventListener('keydown',e=>{
     if(e.key==='Escape'){
